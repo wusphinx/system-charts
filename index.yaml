@@ -1,112 +1,47 @@
 apiVersion: v1
 entries:
-  harbor:
-  - appVersion: 1.7.5
-    created: "2019-08-20T17:18:02.881625932+08:00"
-    description: An open source trusted cloud native registry that stores, signs,
-      and scans content
-    digest: 04a30fce1c80a1339b9f950cd5ff485ee35c64476c0a11146694b31a5a7c3e62
-    engine: gotpl
-    home: https://goharbor.io
-    icon: https://raw.githubusercontent.com/goharbor/harbor/master/docs/img/harbor_logo.png
-    keywords:
-    - docker
-    - registry
-    - harbor
-    maintainers:
-    - email: support@rancher.com
-      name: Rancher
-    name: harbor
-    sources:
-    - https://github.com/goharbor/harbor
-    - https://github.com/goharbor/harbor-helm
-    urls:
-    - harbor-1.7.5-rancher1.tgz
-    version: 1.7.5-rancher1
-  rancher-cis-benchmark:
-  - apiVersion: v1
-    appVersion: 0.0.27
-    created: "2019-08-20T17:18:02.887123006+08:00"
-    description: |
-      Run CIS benhmark tests
-    digest: 5273d81a7df3e32303ebd98c06ca378691ef95cca608199d1f0baa4bdd470a7b
-    home: https://github.com/rancher/system-charts/charts/rancher-cis-benchmark
-    maintainers:
-    - email: leodotcloud@gmail.com
-      name: Murali Paluru
-    name: rancher-cis-benchmark
-    sources:
-    - https://github.com/rancher/system-charts/charts/rancher-cis-benchmark
-    urls:
-    - rancher-cis-benchmark-0.1.0.tgz
-    version: 0.1.0
-  rancher-external-dns:
+  cubepaas-external-dns:
   - apiVersion: v1
     appVersion: 0.5.11
-    created: "2019-08-20T17:18:02.8879906+08:00"
+    created: "2019-08-20T17:33:21.563809973+08:00"
     description: |
       Configure external DNS servers (AWS Route53, Google CloudDNS and others)
       for Kubernetes Ingresses and Services
-    digest: 9ca2bd289e6d570a5002d84ba5344e8dff224b03751421840e76979c3041a7ad
+    digest: 351179cbf68360dce17ef3b6a44a4f0d101ed9117bf51abb5e43f2142277fff6
     engine: gotpl
     home: https://github.com/kubernetes-incubator/external-dns
     maintainers:
     - email: rabadin@cisco.com
       name: rabadin
-    name: rancher-external-dns
+    name: cubepaas-external-dns
     sources:
     - https://github.com/kubernetes-incubator/external-dns
     urls:
-    - rancher-external-dns-0.0.2.tgz
-    version: 0.0.2
-  rancher-istio:
-  - apiVersion: v1
-    appVersion: 1.2.0
-    created: "2019-08-20T17:18:02.902587737+08:00"
-    description: Helm chart for all istio components
-    digest: c9192fceba9ad7a43fb98856cc5f71822d626dcdefe59cb1d8508f4a43a37940
-    engine: gotpl
-    home: https://istio.io/
-    icon: https://istio.io/favicons/android-192x192.png
-    keywords:
-    - istio
-    - security
-    - sidecarInjectorWebhook
-    - mixer
-    - pilot
-    - galley
-    maintainers:
-    - name: istio
-    name: rancher-istio
-    sources:
-    - http://github.com/istio/istio
-    tillerVersion: '>=2.7.2-0'
-    urls:
-    - rancher-istio-0.0.2.tgz
-    version: 0.0.2
-  rancher-logging:
+    - cubepaas-external-dns-0.0.1.tgz
+    version: 0.0.1
+  cubepaas-logging:
   - apiVersion: v1
     appVersion: v1.1.3
-    created: "2019-08-20T17:18:02.904431138+08:00"
-    description: Rancher logging helm chart to support logging function in rancher
-    digest: d04d2dc01b9085017320e805c141739007491d36b660dba387d4747c99f3b9e8
+    created: "2019-08-20T17:33:21.567466611+08:00"
+    description: Rancher logging helm chart to support logging function in cubepaas
+    digest: 8e8b663f70bb147a8430dcdbc448b16327c554480594bf34432a8256c6195f6e
     home: https://www.fluentd.org/
     icon: https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png
     maintainers:
-    - email: support@rancher.com
+    - email: support@cubepaas.com
       name: Michelia
-    name: rancher-logging
+    name: cubepaas-logging
     sources:
     - https://www.fluentd.org/
     urls:
-    - rancher-logging-0.1.2.tgz
-    version: 0.1.2
-  rancher-monitoring:
+    - cubepaas-logging-0.1.0.tgz
+    version: 0.1.0
+  cubepaas-monitoring:
   - apiVersion: v1
-    appVersion: 0.0.4
-    created: "2019-08-20T17:18:02.92982725+08:00"
+    appVersion: 0.0.2
+    created: "2019-08-20T17:33:21.591774356+08:00"
     description: Provides monitoring for Kubernetes which maintaining by Rancher 2.
-    digest: b21b48e22e676c168e2ae7f9390819fb250d2cbe28d9ec44599b5ff45e673ae1
+    digest: 71402190464aa201c5bbc43f1857696bbfccdd05e1bde49b0a7066075be14c35
     engine: gotpl
     home: https://github.com/coreos/prometheus-operator
     icon: https://coreos.com/sites/default/files/inline-images/Overview-prometheus_0.png
@@ -114,12 +49,12 @@ entries:
     - operator
     - prometheus
     maintainers:
-    - email: frank@rancher.com
+    - email: frank@cubepaas.com
       name: thxCode
-    name: rancher-monitoring
+    name: cubepaas-monitoring
     sources:
     - https://github.com/coreos/prometheus-operator
     urls:
-    - rancher-monitoring-0.0.4.tgz
-    version: 0.0.4
-generated: "2019-08-20T17:18:02.878505338+08:00"
+    - cubepaas-monitoring-0.0.2.tgz
+    version: 0.0.2
+generated: "2019-08-20T17:33:21.56283355+08:00"
