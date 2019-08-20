@@ -3,7 +3,7 @@ entries:
   cubepaas-external-dns:
   - apiVersion: v1
     appVersion: 0.5.11
-    created: "2019-08-20T19:12:55.63325994+08:00"
+    created: "2019-08-20T20:54:54.692850736+08:00"
     description: |
       Configure external DNS servers (AWS Route53, Google CloudDNS and others)
       for Kubernetes Ingresses and Services
@@ -22,9 +22,9 @@ entries:
   cubepaas-logging:
   - apiVersion: v1
     appVersion: v1.1.3
-    created: "2019-08-20T19:12:55.635217656+08:00"
+    created: "2019-08-20T20:54:54.693960272+08:00"
     description: Rancher logging helm chart to support logging function in cubepaas
-    digest: 8e8b663f70bb147a8430dcdbc448b16327c554480594bf34432a8256c6195f6e
+    digest: 0acd99519734d556fcbf348747c41219ad928cd35506b77c5a6e518afabc2cd3
     home: https://www.fluentd.org/
     icon: https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png
     maintainers:
@@ -39,7 +39,7 @@ entries:
   cubepaas-monitoring:
   - apiVersion: v1
     appVersion: 0.0.2
-    created: "2019-08-20T19:12:55.649955129+08:00"
+    created: "2019-08-20T20:54:54.713168406+08:00"
     description: Provides monitoring for Kubernetes which maintaining by Rancher 2.
     digest: 71402190464aa201c5bbc43f1857696bbfccdd05e1bde49b0a7066075be14c35
     engine: gotpl
@@ -57,21 +57,4 @@ entries:
     urls:
     - cubepaas-monitoring-0.0.2.tgz
     version: 0.0.2
-  rancher-logging:
-  - apiVersion: v1
-    appVersion: v1.1.3
-    created: "2019-08-20T19:12:55.655708598+08:00"
-    description: Rancher logging helm chart to support logging function in rancher
-    digest: a19d0581a772a52a3e0414d6b8036db229609c5797f8a842ff26c89084ea28b2
-    home: https://www.fluentd.org/
-    icon: https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png
-    maintainers:
-    - email: support@rancher.com
-      name: Michelia
-    name: rancher-logging
-    sources:
-    - https://www.fluentd.org/
-    urls:
-    - rancher-logging-0.1.0.tgz
-    version: 0.1.0
-generated: "2019-08-20T19:12:55.628530167+08:00"
+generated: "2019-08-20T20:54:54.688234106+08:00"
