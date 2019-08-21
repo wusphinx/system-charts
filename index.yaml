@@ -3,7 +3,7 @@ entries:
   cubepaas-external-dns:
   - apiVersion: v1
     appVersion: 0.5.11
-    created: "2019-08-20T20:54:54.692850736+08:00"
+    created: "2019-08-21T11:27:20.615925839+08:00"
     description: |
       Configure external DNS servers (AWS Route53, Google CloudDNS and others)
       for Kubernetes Ingresses and Services
@@ -22,13 +22,13 @@ entries:
   cubepaas-logging:
   - apiVersion: v1
     appVersion: v1.1.3
-    created: "2019-08-20T20:54:54.693960272+08:00"
-    description: Rancher logging helm chart to support logging function in cubepaas
-    digest: 0acd99519734d556fcbf348747c41219ad928cd35506b77c5a6e518afabc2cd3
+    created: "2019-08-21T11:27:20.619222716+08:00"
+    description: Rancher logging helm chart to support logging function in rancher
+    digest: 556cde9021bce03364bde8c4af69d0b01cdb9e4e42824ee16a2b2f5f72f4c02d
     home: https://www.fluentd.org/
     icon: https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png
     maintainers:
-    - email: support@cubepaas.com
+    - email: support@rancher.com
       name: Michelia
     name: cubepaas-logging
     sources:
@@ -39,7 +39,7 @@ entries:
   cubepaas-monitoring:
   - apiVersion: v1
     appVersion: 0.0.2
-    created: "2019-08-20T20:54:54.713168406+08:00"
+    created: "2019-08-21T11:27:20.635279209+08:00"
     description: Provides monitoring for Kubernetes which maintaining by Rancher 2.
     digest: 71402190464aa201c5bbc43f1857696bbfccdd05e1bde49b0a7066075be14c35
     engine: gotpl
@@ -57,4 +57,4 @@ entries:
     urls:
     - cubepaas-monitoring-0.0.2.tgz
     version: 0.0.2
-generated: "2019-08-20T20:54:54.688234106+08:00"
+generated: "2019-08-21T11:27:20.614914279+08:00"
