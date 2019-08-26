@@ -84,7 +84,7 @@ volumeClaimTemplate:
   accessModes: [ "ReadWriteOnce" ]
   resources:
     requests:
-      storage: 30Gi
+      storage: 3Gi
 
 persistence:
   enabled: true
@@ -188,7 +188,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
+    - elasticsearch-master
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
