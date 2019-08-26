@@ -27,7 +27,7 @@ spec:
 {{- end }}
   rules:
   {{- range .Values.ingress.hosts }}
-    - host: {{ elasticsearch-master }}
+    - host: elasticsearch-master
       http:
         paths:
           - path: {{ $ingressPath }}
