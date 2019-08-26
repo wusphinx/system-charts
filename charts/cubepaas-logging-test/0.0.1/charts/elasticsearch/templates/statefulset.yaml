@@ -217,7 +217,7 @@ spec:
         volumeMounts:
           {{- if .Values.persistence.enabled }}
           - name: "{{ template "uname" . }}"
-            mountPath: /usr/share/elasticsearch/data
+            mountPath: /tmp/share/elasticsearch/data
           {{- end }}
           {{- range .Values.secretMounts }}
           - name: {{ .name }}
