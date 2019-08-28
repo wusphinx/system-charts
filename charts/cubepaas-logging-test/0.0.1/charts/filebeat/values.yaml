@@ -1,18 +1,7 @@
 ---
 # Allows you to add any config files in /usr/share/filebeat
 # such as filebeat.yml
-filebeatConfig:
-  filebeat.yml: |
-    filebeat.inputs:
-    - type: docker
-      containers.ids:
-      - '*'
-      processors:
-      - add_kubernetes_metadata:
-          in_cluster: true
 
-    output.elasticsearch:
-      hosts: '${ELASTICSEARCH_HOSTS:elasticsearch-master:9200}'
 
 # Extra environment variables to append to the DaemonSet pod spec.
 # This will be appended to the current 'env:' key. You can use any of the kubernetes env
@@ -33,8 +22,8 @@ extraVolumes: ""
 # Root directory where Filebeat will write data to in order to persist registry data across pod restarts (file position and other metadata).
 hostPathRoot: /var/lib
 
-image: "elastic/filebeat"
-imageTag: "7.3.0"
+image: "registry.cn-hangzhou.aliyuncs.com/link-cloud/filebeat-debug"
+imageTag: "latest"
 imagePullPolicy: "IfNotPresent"
 imagePullSecrets: []
 
@@ -104,3 +93,8 @@ updateStrategy: RollingUpdate
 # Only edit these if you know what you're doing
 nameOverride: ""
 fullnameOverride: ""
+
+secrets:
+  config:
+    projectname: |-
+
