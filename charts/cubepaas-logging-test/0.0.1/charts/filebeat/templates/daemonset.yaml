@@ -79,10 +79,6 @@ spec:
       - name: "filebeat"
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: "{{ .Values.imagePullPolicy }}"
-        args:
-        - "-e"
-        - "-E"
-        - "http.enabled=true"
         livenessProbe:
           exec:
             command:
