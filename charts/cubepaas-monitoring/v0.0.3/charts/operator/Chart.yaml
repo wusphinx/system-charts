@@ -3,6 +3,5 @@ description: Creates Prometheus Operator for Kubernetes.
 engine: gotpl
 maintainers:
 - name: thxCode
-  email: frank@rancher.com
 name: operator
 version: 0.0.2

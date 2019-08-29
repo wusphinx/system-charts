@@ -3,6 +3,5 @@ description: Creates Grafana instance for Kubernetes which maintaining by Ranche
 engine: gotpl
 maintainers:
 - name: thxCode
-  email: frank@rancher.com
 name: grafana
 version: 0.0.1

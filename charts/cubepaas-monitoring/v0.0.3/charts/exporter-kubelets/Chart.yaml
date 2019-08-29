@@ -3,7 +3,6 @@ description: Creates ServiceMonitor CRD of kublets for Kubernetes which maintain
 engine: gotpl
 maintainers:
 - name: thxCode
-  email: frank@rancher.com
 name: exporter-kubelets
 version: 0.0.1
 

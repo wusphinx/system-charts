@@ -3,7 +3,6 @@ description: Provides monitoring for Kubernetes which maintaining by Rancher 2.
 engine: gotpl
 maintainers:
 - name: thxCode
-  email: frank@rancher.com
 name: cubepaas-monitoring
 sources:
 - https://github.com/coreos/prometheus-operator

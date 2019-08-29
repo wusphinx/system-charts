@@ -3,7 +3,6 @@ description: Creates ServiceMonitor CRD of etcd for Kubernetes which maintaining
 engine: gotpl
 maintainers:
 - name: thxCode
-  email: frank@rancher.com
 name: exporter-kube-etcd
 version: 0.0.1
 

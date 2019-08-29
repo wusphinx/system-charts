@@ -3,6 +3,5 @@ description: Creates Prometheus CRD instance for Kubernetes which maintaining by
 engine: gotpl
 maintainers:
 - name: thxCode
-  email: frank@rancher.com
 name: prometheus
 version: 0.0.1

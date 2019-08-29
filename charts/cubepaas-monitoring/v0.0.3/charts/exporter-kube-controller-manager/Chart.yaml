@@ -3,7 +3,6 @@ description: Creates ServiceMonitor CRD of controller manager for Kubernetes whi
 engine: gotpl
 maintainers:
 - name: thxCode
-  email: frank@rancher.com
 name: exporter-kube-controller-manager
 version: 0.0.1
 

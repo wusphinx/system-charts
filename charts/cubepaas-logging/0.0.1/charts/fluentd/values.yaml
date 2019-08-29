@@ -1,7 +1,7 @@
 labels: {}
 
 image:
-  repository: rancher/fluentd
+  repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/fluentd
   tag: v0.1.13
   pullPolicy: IfNotPresent
 
