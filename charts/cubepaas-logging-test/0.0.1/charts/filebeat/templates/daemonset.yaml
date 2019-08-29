@@ -55,6 +55,15 @@ spec:
         secret:
           secretName: {{ .secretName }}
       {{- end }}
+      - name: varlogcontainers
+        hostPath:
+          path: /var/log/containers
+      - name: varlogpods
+        hostPath:
+          path: /var/log/pods
+      - name: rkelog
+        hostPath:
+          path: /var/lib/rancher/rke/log
       - name: filebeat-config
         secret:
           secretName: {{ template "fullname" . }}
@@ -101,6 +110,12 @@ spec:
           subPath: {{ .subPath }}
           {{- end }}
         {{- end }}
+        - name: varlogcontainers
+          mountPath: /var/log/containers
+        - name: varlogpods
+          mountPath: /var/log/pods
+        - name: rkelog
+          mountPath: /var/lib/rancher/rke/log
         - name: filebeat-config
           mountPath: /usr/share/filebeat/precam
         - name: data
