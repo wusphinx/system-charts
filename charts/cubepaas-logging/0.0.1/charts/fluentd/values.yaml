@@ -85,7 +85,7 @@ secrets:
     custom_cluster.conf: |-
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/apache2/*/*
+        path /var/lib/cubepaas/log-volumes/*/apache2/*/*
         pos_file /fluentd/log/custom_cluster_apache2_new.log.pos
         tag tmp-cluster-custom.*
         format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)?$/ 
@@ -94,7 +94,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/nginx/*/* 
+        path /var/lib/cubepaas/log-volumes/*/nginx/*/* 
         pos_file /fluentd/log/custom_cluster_nginx_new.log.pos
         tag tmp-cluster-custom.*
         format /^(?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)") (?<gzip_ratio>[^ ]*)?$/
@@ -103,7 +103,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/rfc3164/*/*
+        path /var/lib/cubepaas/log-volumes/*/rfc3164/*/*
         pos_file /fluentd/log/custom_cluster_rfc3164_new.log.pos
         tag tmp-cluster-custom.*
         format /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
@@ -112,7 +112,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/rfc5424/*/*
+        path /var/lib/cubepaas/log-volumes/*/rfc5424/*/*
         pos_file /fluentd/log/custom_cluster_rfc5424_new.log.pos
         tag tmp-cluster-custom.*
         format /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
@@ -121,7 +121,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/json/*/*
+        path /var/lib/cubepaas/log-volumes/*/json/*/*
         pos_file /fluentd/log/custom_cluster_json_new.log.pos
         tag tmp-cluster-custom.*
         format json
@@ -129,7 +129,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/none/*/*
+        path /var/lib/cubepaas/log-volumes/*/none/*/*
         pos_file /fluentd/log/custom_cluster_none_new.log.pos
         tag tmp-cluster-custom.*
         <parse>
@@ -186,7 +186,7 @@ secrets:
     custom_project.conf: |-
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/apache2/*/*
+        path /var/lib/cubepaas/log-volumes/*/apache2/*/*
         pos_file /fluentd/log/custom_project_apache2_new.log.pos
         tag tmp-project-custom.*
         format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)?$/ 
@@ -195,7 +195,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/nginx/*/* 
+        path /var/lib/cubepaas/log-volumes/*/nginx/*/* 
         pos_file /fluentd/log/custom_project_nginx_new.log.pos
         tag tmp-project-custom.*
         format /^(?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)") (?<gzip_ratio>[^ ]*)?$/
@@ -204,7 +204,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/rfc3164/*/*
+        path /var/lib/cubepaas/log-volumes/*/rfc3164/*/*
         pos_file /fluentd/log/custom_project_rfc3164_new.log.pos
         tag tmp-project-custom.*
         format /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
@@ -213,7 +213,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/rfc5424/*/*
+        path /var/lib/cubepaas/log-volumes/*/rfc5424/*/*
         pos_file /fluentd/log/custom_project_rfc5424_new.log.pos
         tag tmp-project-custom.*
         format /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
@@ -222,7 +222,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/json/*/*
+        path /var/lib/cubepaas/log-volumes/*/json/*/*
         pos_file /fluentd/log/custom_project_json_new.log.pos
         tag tmp-project-custom.*
         format json
@@ -230,7 +230,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/*/none/*/*
+        path /var/lib/cubepaas/log-volumes/*/none/*/*
         pos_file /fluentd/log/custom_project_none_new.log.pos
         tag tmp-project-custom.*
         <parse>
@@ -297,7 +297,7 @@ secrets:
     legacy_custom_cluster.conf: |-
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/apache2/*/*
+        path /var/lib/cubepaas/log-volumes/apache2/*/*
         pos_file /fluentd/log/custom_cluster_apache2.log.pos
         tag tmp2.cluster-custom.*
         format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)?$/ 
@@ -306,7 +306,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/nginx/*/* 
+        path /var/lib/cubepaas/log-volumes/nginx/*/* 
         pos_file /fluentd/log/custom_cluster_nginx.log.pos
         tag tmp2.cluster-custom.*
         format /^(?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)") (?<gzip_ratio>[^ ]*)?$/
@@ -315,7 +315,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/rfc3164/*/*
+        path /var/lib/cubepaas/log-volumes/rfc3164/*/*
         pos_file /fluentd/log/custom_cluster_rfc3164.log.pos
         tag tmp2.cluster-custom.*
         format /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
@@ -324,7 +324,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/rfc5424/*/*
+        path /var/lib/cubepaas/log-volumes/rfc5424/*/*
         pos_file /fluentd/log/custom_cluster_rfc5424.log.pos
         tag tmp2.cluster-custom.*
         format /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
@@ -333,7 +333,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/json/*/*
+        path /var/lib/cubepaas/log-volumes/json/*/*
         pos_file /fluentd/log/custom_cluster_json.log.pos
         tag tmp2.cluster-custom.*
         format json
@@ -367,7 +367,7 @@ secrets:
     legacy_custom_project.conf: |-
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/apache2/*/*
+        path /var/lib/cubepaas/log-volumes/apache2/*/*
         pos_file /fluentd/log/custom_project_apache2.log.pos
         tag tmp2.tmp2-project-custom.*
         format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)?$/ 
@@ -376,7 +376,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/nginx/*/* 
+        path /var/lib/cubepaas/log-volumes/nginx/*/* 
         pos_file /fluentd/log/custom_project_nginx.log.pos
         tag tmp2.tmp2-project-custom.*
         format /^(?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)") (?<gzip_ratio>[^ ]*)?$/
@@ -385,7 +385,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/rfc3164/*/*
+        path /var/lib/cubepaas/log-volumes/rfc3164/*/*
         pos_file /fluentd/log/custom_project_rfc3164.log.pos
         tag tmp2.tmp2-project-custom.*
         format /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
@@ -394,7 +394,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/rfc5424/*/*
+        path /var/lib/cubepaas/log-volumes/rfc5424/*/*
         pos_file /fluentd/log/custom_project_rfc5424.log.pos
         tag tmp2.tmp2-project-custom.*
         format /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
@@ -403,7 +403,7 @@ secrets:
 
       <source>
         @type tail
-        path /var/lib/rancher/log-volumes/json/*/*
+        path /var/lib/cubepaas/log-volumes/json/*/*
         pos_file /fluentd/log/custom_project_json.log.pos
         tag tmp2.tmp2-project-custom.*
         format json

@@ -68,9 +68,9 @@ spec:
           name: varlogcontainers
         - mountPath: /var/log/pods
           name: varlogpods
-        - mountPath: /var/lib/rancher/rke/log
+        - mountPath: /var/lib/cubepaas/rke/log
           name: rkelog
-        - mountPath: /var/lib/rancher/log-volumes
+        - mountPath: /var/lib/cubepaas/log-volumes
           name: customlog
         - mountPath: /fluentd/log
           name: fluentdlog
@@ -146,7 +146,7 @@ spec:
       terminationGracePeriodSeconds: 30
       volumes:
       - hostPath:
-          path: /var/lib/rancher/fluentd/etc/config/custom
+          path: /var/lib/cubepaas/fluentd/etc/config/custom
         name: custom
       - hostPath:
           path: {{ .Values.cluster.dockerRoot }}
@@ -158,13 +158,13 @@ spec:
           path: /var/log/pods
         name: varlogpods
       - hostPath:
-          path: /var/lib/rancher/rke/log
+          path: /var/lib/cubepaas/rke/log
         name: rkelog
       - hostPath:
-          path: /var/lib/rancher/log-volumes
+          path: /var/lib/cubepaas/log-volumes
         name: customlog
       - hostPath:
-          path: /var/lib/rancher/fluentd/log
+          path: /var/lib/cubepaas/fluentd/log
         name: fluentdlog
       - name: config
         secret:
