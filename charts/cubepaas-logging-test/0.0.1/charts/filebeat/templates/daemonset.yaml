@@ -136,8 +136,6 @@ spec:
         imagePullPolicy: "{{ .Values.configmapReload.image.pullPolicy }}"
         args:
           - --volume-dir=/usr/share/filebeat/precam
-          - --webhook-method=GET
-          - --webhook-url=http://127.0.0.1:24444/api/config.reload
         resources:
         {{ toYaml .Values.configmapReload.resources | indent 12 }}
         volumeMounts:
