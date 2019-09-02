@@ -132,7 +132,7 @@ spec:
 {{ tpl .Values.extraVolumeMounts . | indent 8 }}
         {{- end }}
       - name: {{ template "fullname" . }}-{{ .Values.configmapReload.name }}
-        image: {{ template "system_default_registry" . }}{{ .Values.configmapReload.image.repository }}:{{ .Values.configmapReload.image.tag }}
+        image: {{ .Values.configmapReload.image.repository }}:{{ .Values.configmapReload.image.tag }}
         imagePullPolicy: "{{ .Values.configmapReload.image.pullPolicy }}"
         args:
           - --volume-dir=/usr/share/filebeat/precam
