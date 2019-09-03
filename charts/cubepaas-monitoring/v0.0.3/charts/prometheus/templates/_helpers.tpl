@@ -99,7 +99,7 @@ ruleSelector:
 {{- if eq .Values.level "project" }}
   - key: "source"
     operator: "In"
-    values: [ "rancher-alert" ]
+    values: [ "cubepaas-alert" ]
 {{- end }}
 {{- if and .Values.ruleSelector .Values.ruleSelector.matchExpressions }}
 {{ toYaml .Values.ruleSelector.matchExpressions | indent 2}}
