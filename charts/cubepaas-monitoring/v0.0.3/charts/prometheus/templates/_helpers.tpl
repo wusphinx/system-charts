@@ -64,7 +64,7 @@ matchLabels:
 {{- end }}
 matchExpressions:
 {{- if .projectName }}
-- key: "field.cattle.io/projectId"
+- key: "field.cubepaas.com/projectId"
   operator: "In"
   values: [ "{{ .projectName }}" ]
 {{- end }}
