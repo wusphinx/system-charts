@@ -87,11 +87,13 @@ spec:
       {{- end }}
       containers:
       - name: "reloader"
-        env:
         image: "stakater/reloader:v0.0.40"
         imagePullPolicy: IfNotPresent
         name: reloader
         args:
+        volumeMounts:
+        - name: filebeat-config
+          mountPath: /usr/share/filebeat/precam
       - name: "filebeat"
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: "{{ .Values.imagePullPolicy }}"
