@@ -12,33 +12,12 @@ rules:
 - apiGroups:
   - ""
   resources:
-  - configmaps
-  - secrets
   - namespaces
   - pods
   verbs:
   - get
   - list
   - watch
-- apiGroups:
-  - "apps"
-  resources:
-  - deployments
-  - daemonsets
-  - statefulsets
-  verbs:
-  - list
-  - get
-  - update
-  - patch
-- apiGroups:
-  - "extensions"
-  resources:
-  - deployments
-  - daemonsets
-  verbs:
-  - list
-  - get
-  - update
-  - patch
+
+
 {{- end -}}
