@@ -7,7 +7,7 @@ reloader:
       provider: stakater
       group: com.stakater.platform
     image:
-      name: stakater/reloader
+      name: registry.cn-hangzhou.aliyuncs.com/link-cloud/reloader
       tag: "v0.0.29"
       pullPolicy: IfNotPresent
     # Support for extra environment variables.

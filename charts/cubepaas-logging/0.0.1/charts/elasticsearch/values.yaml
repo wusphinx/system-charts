@@ -42,7 +42,7 @@ secretMounts: []
 #    secretName: elastic-certificates
 #    path: /usr/share/elasticsearch/config/certs
 
-image: "elasticsearch"
+image: "registry.cn-hangzhou.aliyuncs.com/link-cloud/elasticsearch"
 imageTag: "7.3.0"
 imagePullPolicy: "IfNotPresent"
 
