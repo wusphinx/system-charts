@@ -12,6 +12,7 @@ rules:
 - apiGroups:
   - ""
   resources:
+  - configmaps
   - secrets
   - namespaces
   - pods
