@@ -8,7 +8,7 @@ dependencies:
     version: 0.0.1
     condition: filebeat.enabled
     repository: "file://./charts/filebeat/"
-  - name: filebeat
+  
+  - name: reloader
     version: 0.0.1
-#    condition: filebeat.enabled
     repository: "file://./charts/reloader/"
