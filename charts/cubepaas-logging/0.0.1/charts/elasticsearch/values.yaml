@@ -43,7 +43,7 @@ secretMounts:
 #    path: /usr/share/elasticsearch/config/certs
 
 image: "registry.cn-hangzhou.aliyuncs.com/link-cloud/elasticsearch"
-imageTag: "6.8.2"
+imageTag: "6.6.2"
 imagePullPolicy: "IfNotPresent"
 
 podAnnotations: {}
