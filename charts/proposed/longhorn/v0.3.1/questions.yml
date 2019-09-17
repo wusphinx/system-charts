@@ -2,7 +2,7 @@ categories:
 - storage
 labels:
   io.rancher.certified: experimental
-namespace: longhorn-system
+namespace: cubepaas-bs
 questions:
 - variable: driver
   default: csi

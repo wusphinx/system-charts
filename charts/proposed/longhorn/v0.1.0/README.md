@@ -17,7 +17,7 @@ Longhorn is 100% open source software. Project source code is spread across a nu
 
 In order to uninstall Longhorn, user need to remove all the volumes first:
 ```
-kubectl -n longhorn-system delete lhv --all
+kubectl -n cubepaas-bs delete lhv --all
 ```
 
 After confirming all the volumes are removed, then Longhorn can be easily uninstalled using:
