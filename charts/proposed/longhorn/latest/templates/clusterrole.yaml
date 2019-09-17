@@ -27,6 +27,6 @@ rules:
 - apiGroups: ["csi.storage.k8s.io"]
   resources: ["csinodeinfos"]
   verbs: ["get", "list", "watch"]
-- apiGroups: ["longhorn.rancher.io"]
+- apiGroups: ["bs.cubepaas.com"]
   resources: ["volumes", "engines", "replicas", "settings", "engineimages", "nodes"]
   verbs: ["*"]
