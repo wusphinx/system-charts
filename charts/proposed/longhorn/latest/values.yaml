@@ -7,14 +7,9 @@ image:
     engineTag: v0.5.0
     manager: rancher/longhorn-manager
     managerTag: v0.5.0
-    ui: rancher/longhorn-ui
-    uiTag: v0.5.0
   pullPolicy: IfNotPresent
 
 service:
-  ui:
-    type: LoadBalancer
-    nodePort: ""
   manager:
     type: ClusterIP
     nodePort: ""
