@@ -22,7 +22,7 @@ spec:
           image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
           imagePullPolicy: Always
           command:
-          - bs-manager
+          - longhorn-manager
           - -d
           - deploy-driver
           - --manager-image

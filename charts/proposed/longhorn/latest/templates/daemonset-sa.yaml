@@ -28,7 +28,7 @@ spec:
         securityContext:
           privileged: true
         command:
-        - bs-manager
+        - longhorn-manager
         - -d
         - daemon
         - --engine-image
@@ -48,7 +48,7 @@ spec:
         - name: varrun
           mountPath: /var/run/
         - name: cubedbs
-          mountPath: /var/lib/cubepaas/bs/
+          mountPath: /var/lib/rancher/longhorn/
           mountPropagation: Bidirectional
         env:
         - name: POD_NAMESPACE
@@ -80,7 +80,7 @@ spec:
           path: /var/run/
       - name: cubedbs
         hostPath:
-          path: /var/lib/cubepaas/bs/
+          path: /var/lib/rancher/longhorn/
       serviceAccountName: cubedbs-service-account
 ---
 apiVersion: v1
