@@ -48,7 +48,7 @@ spec:
         - name: varrun
           mountPath: /var/run/
         - name: longhorn
-          mountPath: /var/lib/rancher/longhorn/
+          mountPath: /var/lib/cubepaas/bs/
           mountPropagation: Bidirectional
         env:
         - name: POD_NAMESPACE
@@ -80,7 +80,7 @@ spec:
           path: /var/run/
       - name: longhorn
         hostPath:
-          path: /var/lib/rancher/longhorn/
+          path: /var/lib/cubepaas/bs/
       serviceAccountName: longhorn-service-account
 ---
 apiVersion: v1
