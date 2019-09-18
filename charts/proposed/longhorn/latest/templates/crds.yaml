@@ -3,9 +3,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     longhorn-manager: Engine
-  name: engines.bs.cubepaas.com
+  name: engines.longhorn.rancher.io
 spec:
-  group: bs.cubepaas.com
+  group: longhorn.rancher.io
   names:
     kind: Engine
     listKind: EngineList
@@ -21,9 +21,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     longhorn-manager: Replica
-  name: replicas.bs.cubepaas.com
+  name: replicas.longhorn.rancher.io
 spec:
-  group: bs.cubepaas.com
+  group: longhorn.rancher.io
   names:
     kind: Replica
     listKind: ReplicaList
@@ -39,9 +39,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     longhorn-manager: Setting
-  name: settings.bs.cubepaas.com
+  name: settings.longhorn.rancher.io
 spec:
-  group: bs.cubepaas.com
+  group: longhorn.rancher.io
   names:
     kind: Setting
     listKind: SettingList
@@ -57,9 +57,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     longhorn-manager: Volume
-  name: volumes.bs.cubepaas.com
+  name: volumes.longhorn.rancher.io
 spec:
-  group: bs.cubepaas.com
+  group: longhorn.rancher.io
   names:
     kind: Volume
     listKind: VolumeList
@@ -75,9 +75,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     longhorn-manager: EngineImage
-  name: engineimages.bs.cubepaas.com
+  name: engineimages.longhorn.rancher.io
 spec:
-  group: bs.cubepaas.com
+  group: longhorn.rancher.io
   names:
     kind: EngineImage
     listKind: EngineImageList
@@ -93,9 +93,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     longhorn-manager: Node
-  name: nodes.bs.cubepaas.com
+  name: nodes.longhorn.rancher.io
 spec:
-  group: bs.cubepaas.com
+  group: longhorn.rancher.io
   names:
     kind: Node
     listKind: NodeList

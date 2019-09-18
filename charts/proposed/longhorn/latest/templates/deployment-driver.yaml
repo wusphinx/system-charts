@@ -1,34 +1,34 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: longhorn-driver-deployer
+  name: cubedbs-driver-deployer
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: longhorn-driver-deployer
+      app: cubedbs-driver-deployer
   template:
     metadata:
       labels:
-        app: longhorn-driver-deployer
+        app: cubedbs-driver-deployer
     spec:
       initContainers:
-        - name: wait-longhorn-manager
-          image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
-          command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://longhorn-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
+        - name: wait-cubedbs-manager
+          image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
+          command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://bs-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
       containers:
-        - name: longhorn-driver-deployer
-          image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
+        - name: cubedbs-driver-deployer
+          image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
           imagePullPolicy: Always
           command:
-          - longhorn-manager
+          - bs-manager
           - -d
           - deploy-driver
           - --manager-image
-          - "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
+          - "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
           - --manager-url
-          - http://longhorn-backend:9500/v1
+          - http://bs-backend:9500/v1
           - --driver
           - "{{ .Values.driver }}"
           env:
@@ -70,4 +70,4 @@ spec:
           - name: CSI_PROVISIONER_REPLICA_COUNT
             value: "{{ .Values.csi.provisionerReplicaCount }}"
           {{- end }}
-      serviceAccountName: longhorn-service-account
+      serviceAccountName: cubedbs-service-account
