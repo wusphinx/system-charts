@@ -28,7 +28,7 @@ spec:
           - --manager-image
           - "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
           - --manager-url
-          - http://bs-backend:9500/v1
+          - http://longhorn-backend:9500/v1
           - --driver
           - "{{ .Values.driver }}"
           env:
