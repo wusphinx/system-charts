@@ -1,32 +1,32 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: cubedbs-driver-deployer
+  name: longhorn-driver-deployer
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cubedbs-driver-deployer
+      app: longhorn-driver-deployer
   template:
     metadata:
       labels:
-        app: cubedbs-driver-deployer
+        app: longhorn-driver-deployer
     spec:
       initContainers:
-        - name: wait-cubedbs-manager
-          image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
-          command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://bs-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
+        - name: wait-longhorn-manager
+          image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
+          command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://longhorn-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
       containers:
-        - name: cubedbs-driver-deployer
-          image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
+        - name: longhorn-driver-deployer
+          image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
           imagePullPolicy: Always
           command:
           - longhorn-manager
           - -d
           - deploy-driver
           - --manager-image
-          - "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
+          - "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
           - --manager-url
           - http://longhorn-backend:9500/v1
           - --driver
@@ -70,4 +70,4 @@ spec:
           - name: CSI_PROVISIONER_REPLICA_COUNT
             value: "{{ .Values.csi.provisionerReplicaCount }}"
           {{- end }}
-      serviceAccountName: cubedbs-service-account
+      serviceAccountName: longhorn-service-account

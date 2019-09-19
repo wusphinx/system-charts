@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "cubedbs.name" -}}
+{{- define "longhorn.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -10,13 +10,13 @@ Expand the name of the chart.
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "cubedbs.fullname" -}}
+{{- define "longhorn.fullname" -}}
 {{- $name := default .Chart.Name .Values.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 
-{{- define "cubedbs.managerIP" -}}
-{{- $fullname := (include "cubedbs.fullname" .) -}}
+{{- define "longhorn.managerIP" -}}
+{{- $fullname := (include "longhorn.fullname" .) -}}
 {{- printf "http://%s-backend:9500" $fullname | trunc 63 | trimSuffix "-" -}}
 {{- end -}}

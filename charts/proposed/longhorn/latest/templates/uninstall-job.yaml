@@ -4,18 +4,18 @@ metadata:
   annotations:
     "helm.sh/hook": pre-delete
     "helm.sh/hook-delete-policy": hook-succeeded
-  name: cubedbs-uninstall
+  name: longhorn-uninstall
   namespace: {{ .Release.Namespace }}
 spec:
   activeDeadlineSeconds: 900
   backoffLimit: 1
   template:
     metadata:
-      name: cubedbs-uninstall
+      name: longhorn-uninstall
     spec:
       containers:
-      - name: cubedbs-uninstall
-        image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
+      - name: longhorn-uninstall
+        image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
         imagePullPolicy: Always
         command:
         - longhorn-manager
@@ -27,4 +27,4 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
       restartPolicy: OnFailure
-      serviceAccountName: cubedbs-service-account
+      serviceAccountName: longhorn-service-account
