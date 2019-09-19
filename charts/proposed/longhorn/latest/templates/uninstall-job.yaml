@@ -4,7 +4,7 @@ metadata:
   annotations:
     "helm.sh/hook": pre-delete
     "helm.sh/hook-delete-policy": hook-succeeded
-  name: longhorn-uninstall
+  name: storagebs-uninstall
   namespace: {{ .Release.Namespace }}
 spec:
   activeDeadlineSeconds: 900
