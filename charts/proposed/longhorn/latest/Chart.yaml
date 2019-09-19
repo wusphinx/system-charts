@@ -1,11 +1,11 @@
 apiVersion: v1
-name: storagebs
+name: cubepaas-bs
 version: 0.5.0
 appVersion: v0.5.0
 kubeVersion: ">=v1.8.0-r0"
-description: storagebs is a distributed block storage system for Kubernetes
+description: cubepaas-bs is a distributed block storage system for Kubernetes
 keywords:
-- storagebs
+- cubepaas-bs
 - storage
 - distributed
 - block
