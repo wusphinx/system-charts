@@ -7,13 +7,13 @@ questions:
 - variable: persistence.defaultClass
   default: "false"
   description: "Set as default StorageClass"
-  group: "Cubedbs Settings"
+  group: "storagebs Settings"
   type: boolean
   required: true
   label: Default Storage Class
 - variable: persistence.defaultClassReplicaCount
   description: "Set replica count for default StorageClass"
-  group: "Cubedbs Settings"
+  group: "storagebs Settings"
   type: int
   default: 3
   min: 1
