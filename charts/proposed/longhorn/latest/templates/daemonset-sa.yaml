@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata:
   labels:
     app: longhorn-manager
-  name: longhorn-manager
+  name: storagebs-manager
   namespace: {{ .Release.Namespace }}
 spec:
   selector:
