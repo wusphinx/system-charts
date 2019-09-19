@@ -1,24 +1,24 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: cubedbs-driver-deployer
+  name: longhorn-driver-deployer
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cubedbs-driver-deployer
+      app: longhorn-driver-deployer
   template:
     metadata:
       labels:
-        app: cubedbs-driver-deployer
+        app: longhorn-driver-deployer
     spec:
       initContainers:
         - name: wait-cubedbs-manager
           image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
           command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://bs-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
       containers:
-        - name: cubedbs-driver-deployer
+        - name: longhorn-driver-deployer
           image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
           imagePullPolicy: Always
           command:

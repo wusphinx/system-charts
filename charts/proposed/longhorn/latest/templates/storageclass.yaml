@@ -9,7 +9,7 @@ metadata:
   annotations:
     storageclass.beta.kubernetes.io/is-default-class: "false"
   {{- end }}
-provisioner: cubepaas.com/bs
+provisioner: rancher.io/longhorn
 parameters:
   numberOfReplicas: "{{ .Values.persistence.defaultClassReplicaCount }}"
   staleReplicaTimeout: "30"
