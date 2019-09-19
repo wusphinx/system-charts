@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: longhorn-uninstall
-        image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
+        image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
         imagePullPolicy: Always
         command:
         - longhorn-manager
@@ -27,4 +27,4 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
       restartPolicy: OnFailure
-      serviceAccountName: cubedbs-service-account
+      serviceAccountName: longhorn-service-account

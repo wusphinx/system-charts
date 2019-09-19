@@ -23,7 +23,7 @@ spec:
           mountPath: /tmp/
       containers:
       - name: longhorn-manager
-        image: "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
+        image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
         imagePullPolicy: Always
         securityContext:
           privileged: true
@@ -32,11 +32,11 @@ spec:
         - -d
         - daemon
         - --engine-image
-        - "{{ .Values.image.cubedbs.engine }}:{{ .Values.image.cubedbs.engineTag }}"
+        - "{{ .Values.image.longhorn.engine }}:{{ .Values.image.longhorn.engineTag }}"
         - --manager-image
-        - "{{ .Values.image.cubedbs.manager }}:{{ .Values.image.cubedbs.managerTag }}"
+        - "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
         - --service-account
-        - cubedbs-service-account
+        - longhorn-service-account
         ports:
         - containerPort: 9500
           name: manager
@@ -47,7 +47,7 @@ spec:
           mountPath: /host/proc/
         - name: varrun
           mountPath: /var/run/
-        - name: cubedbs
+        - name: longhorn
           mountPath: /var/lib/rancher/longhorn/
           mountPropagation: Bidirectional
         env:
@@ -64,7 +64,7 @@ spec:
             fieldRef:
               fieldPath: spec.nodeName
         - name: LONGHORN_BACKEND_SVC
-          value: bs-backend
+          value: longhorn-backend
       volumes:
       - name: iscsiadm 
         hostPath:
@@ -78,17 +78,17 @@ spec:
       - name: varrun
         hostPath:
           path: /var/run/
-      - name: cubedbs
+      - name: longhorn
         hostPath:
           path: /var/lib/rancher/longhorn/
-      serviceAccountName: cubedbs-service-account
+      serviceAccountName: longhorn-service-account
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
     app: longhorn-manager
-  name: bs-backend
+  name: longhorn-backend
   namespace: {{ .Release.Namespace }}
 spec:
   type: {{ .Values.service.manager.type }}
