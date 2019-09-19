@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata:
   labels:
     app: longhorn-manager
-  name: longhorn-manager
+  name: storagebs-manager
   namespace: {{ .Release.Namespace }}
 spec:
   selector:
@@ -64,7 +64,7 @@ spec:
             fieldRef:
               fieldPath: spec.nodeName
         - name: LONGHORN_BACKEND_SVC
-          value: longhorn-backend
+          value: storagebs-backend
       volumes:
       - name: iscsiadm 
         hostPath:
@@ -88,7 +88,7 @@ kind: Service
 metadata:
   labels:
     app: longhorn-manager
-  name: longhorn-backend
+  name: storagebs-backend
   namespace: {{ .Release.Namespace }}
 spec:
   type: {{ .Values.service.manager.type }}
