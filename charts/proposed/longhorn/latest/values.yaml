@@ -32,13 +32,6 @@ csi:
   provisionerReplicaCount:
 
 resources: 
-  engine:
-    limits:
-     cpu: 100m
-     memory: 128Mi
-    requests:
-     cpu: 100m
-     memory: 128Mi
   manager:
     limits:
      cpu: 100m

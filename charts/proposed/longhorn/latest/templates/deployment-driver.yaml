@@ -70,4 +70,11 @@ spec:
           - name: CSI_PROVISIONER_REPLICA_COUNT
             value: "{{ .Values.csi.provisionerReplicaCount }}"
           {{- end }}
+          resources:
+            limits:
+              cpu: {{ .Values.resources.manager.limits.cpu }}
+              memory: {{ .Values.resources.manager.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.manager.requests.cpu }}
+              memory: {{ .Values.resources.manager.requests.cpu }}
       serviceAccountName: longhorn-service-account
