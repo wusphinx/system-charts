@@ -1,2 +1,2 @@
 
-Please install Longhorn chart in `cubepaas-bs` namespace only.
+Please install Storagebs chart in `cubepaas-bs` namespace only.
