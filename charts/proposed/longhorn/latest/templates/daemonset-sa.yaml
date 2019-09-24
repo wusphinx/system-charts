@@ -76,7 +76,7 @@ spec:
       volumes:
       - name: iscsiadm 
         hostPath:
-          path: /usr/sbin/
+          path: /sbin/
       - name: dev
         hostPath:
           path: /dev/
