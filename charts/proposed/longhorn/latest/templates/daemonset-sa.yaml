@@ -17,7 +17,8 @@ spec:
       initContainers:
       - name: install
         image: registry.cn-hangzhou.aliyuncs.com/link-cloud/initcubepass-bs:v0.5.0
-        command: ["/bin/sh","-c","mv /home/iscsiadm /tmp/"]
+        imagePullPolicy: Always
+        command: ["/bin/sh","-c","mv /home/* /tmp/"]
         volumeMounts:
         - name: iscsiadm
           mountPath: /tmp/
@@ -75,7 +76,7 @@ spec:
       volumes:
       - name: iscsiadm 
         hostPath:
-          path: /usr/bin/
+          path: /usr/sbin/
       - name: dev
         hostPath:
           path: /dev/

@@ -7,18 +7,18 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: longhorn-driver-deployer
+      app: storagebs-driver-deployer
   template:
     metadata:
       labels:
-        app: longhorn-driver-deployer
+        app: storagebs-driver-deployer
     spec:
       initContainers:
-        - name: wait-longhorn-manager
+        - name: wait-storagebs-manager
           image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
           command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://storagebs-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
       containers:
-        - name: longhorn-driver-deployer
+        - name: storagebs-driver-deployer
           image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
           imagePullPolicy: Always
           command:
