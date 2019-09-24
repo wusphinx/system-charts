@@ -11,7 +11,7 @@ metadata:
   {{- end }}
 provisioner: cubepaas.com/storagebs
 parameters:
-  numberOfReplicas: "{{ .Values.persistence.defaultClassReplicaCount }}"
+  numberOfReplicas: {{ .Values.persistence.defaultClassReplicaCount }}
   staleReplicaTimeout: "30"
   fromBackup: ""
   baseImage: ""
