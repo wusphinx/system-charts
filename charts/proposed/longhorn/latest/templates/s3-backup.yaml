@@ -1,6 +1,0 @@
-apiVersion: longhorn.rancher.io/v1alpha1
-  kind: Setting
-  metadata:
-    name: backup-target
-    namespace: longhorn-system
-  value: {{ .Values.s3 }}

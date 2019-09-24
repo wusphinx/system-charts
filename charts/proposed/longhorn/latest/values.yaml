@@ -13,9 +13,6 @@ service:
     type: ClusterIP
     nodePort: ""
 
-# s3 backup addr
-s3: "s3://127.0.0.1"
-
 # deploy either 'flexvolume' or 'csi' driver
 driver: csi
 
