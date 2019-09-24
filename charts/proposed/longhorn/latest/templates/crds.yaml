@@ -105,10 +105,3 @@ spec:
     singular: node
   scope: Namespaced
   version: v1alpha1
----
-apiVersion: longhorn.rancher.io/v1alpha1
-kind: Setting
-metadata:
-  name: backup-target
-  namespace: cubepaas-bs
-value: {{ .Values.s3 }}
