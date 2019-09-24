@@ -84,7 +84,7 @@ spec:
       - name: iscsisbin
         hostPath:
           path: /sbin/
-       - name: iscsiusr
+      - name: iscsiusr
         hostPath:
           path: /usr/sbin/     
       - name: dev
