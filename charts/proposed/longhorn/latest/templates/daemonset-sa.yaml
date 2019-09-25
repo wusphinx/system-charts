@@ -24,8 +24,10 @@ spec:
         volumeMounts:
         - name: iscsiusr
           mountPath: /usr/sbin/
-        - name: proc 
-          mountPath: /host/proc/ 
+        - name: proc
+          mountPath: /host/proc/
+        - name: tmp
+          mountPath: /tmp/ 
       containers:
       - name: storagebs-manager
         image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
@@ -78,6 +80,9 @@ spec:
         - name: LONGHORN_BACKEND_SVC
           value: storagebs-backend
       volumes:
+      - name: tmp
+        hostPath:
+          path: /tmp/
       - name: iscsiusr
         hostPath:
           path: /usr/sbin/
