@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
       - name: install
-        image: registry.cn-hangzhou.aliyuncs.com/link-cloud/initcubepaas-bs:v0.5.0
+        image: registry.cn-hangzhou.aliyuncs.com/link-cloud/initcubepaas-bs:dev
         imagePullPolicy: Always
         command: ["/bin/sh","-c","/home/init.sh && ls /usr/sbin/iscsiadm"]
         securityContext:
