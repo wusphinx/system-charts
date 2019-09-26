@@ -10,4 +10,4 @@ questions:
   label: Default Storage Class
 - variable: persistence.defaultClassReplicaCount
   default: "3"
-  type: int
+  type: string
