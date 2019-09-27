@@ -93,6 +93,8 @@ spec:
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         env:
+        - name: AUTO_DELETE_DAY
+          value: "{{ .Values.logAutoDeleteDay}}"
         - name: POD_NAMESPACE
           valueFrom:
             fieldRef:
