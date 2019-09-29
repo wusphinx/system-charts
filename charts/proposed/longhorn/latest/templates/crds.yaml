@@ -40,6 +40,8 @@ metadata:
   labels:
     longhorn-manager: Setting
   name: settings.longhorn.rancher.io
+  annotations:
+    "helm.sh/hook": crd-install
 spec:
   group: longhorn.rancher.io
   names:
