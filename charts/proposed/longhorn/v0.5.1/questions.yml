@@ -1,0 +1,13 @@
+categories:
+- storage
+namespace: cubepaas-bs
+questions:
+- variable: persistence.defaultClass
+  default: "false"
+  description: "Set as default StorageClass"
+  type: boolean
+  required: false
+  label: Default Storage Class
+- variable: persistence.defaultClassReplicaCount
+  default: "3"
+  type: string
