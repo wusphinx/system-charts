@@ -354,7 +354,6 @@ prometheus:
 
 dingtalk:
   enabled: true
-  level: cluster
 
 global:
   systemDefaultRegistry: ""
