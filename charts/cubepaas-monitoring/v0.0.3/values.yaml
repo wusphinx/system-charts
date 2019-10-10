@@ -353,7 +353,7 @@ prometheus:
     alertManagerNamespace: ""
 
 dingtalk:
-  enabled: true
+  enabled: false
 
 global:
   systemDefaultRegistry: ""
