@@ -68,3 +68,8 @@ dependencies:
     version: 0.0.2
     condition: operator.enabled,enabled
     repository: "file://./charts/operator/"
+
+  - name: dingtalk
+    version: 0.0.1
+    condition: dingtalk.enabled
+    repository: "file://./charts/dingtalk/"

@@ -352,6 +352,10 @@ prometheus:
   cluster:
     alertManagerNamespace: ""
 
+dingtalk:
+  enabled: true
+  level: cluster
+
 global:
   systemDefaultRegistry: ""
   clusterName: ""
