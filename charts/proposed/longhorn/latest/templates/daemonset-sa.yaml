@@ -16,18 +16,16 @@ spec:
     spec:
       initContainers:
       - name: install
-        image: registry.cn-hangzhou.aliyuncs.com/link-cloud/initcubepaas-bs:v0.5.0
+        image: registry.cn-hangzhou.aliyuncs.com/link-cloud/initcubepaas-bs:v0.5.1
         imagePullPolicy: Always
-        command: ["/bin/sh","-c","/home/init.sh && ls /usr/sbin/iscsi*"]
+        command: ["/bin/sh","-c","/home/init.sh && ls /sbin/iscsi*"]
         securityContext:
           privileged: true
         volumeMounts:
         - name: iscsiusr
-          mountPath: /usr/sbin/
-        - name: proc
-          mountPath: /host/proc/
-        - name: tmp
-          mountPath: /tmp/ 
+          mountPath: /sbin/
+        - name: etc
+          mountPath: /etc/ 
       containers:
       - name: storagebs-manager
         image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
@@ -80,12 +78,12 @@ spec:
         - name: LONGHORN_BACKEND_SVC
           value: storagebs-backend
       volumes:
-      - name: tmp
+      - name: etc
         hostPath:
-          path: /tmp/
+          path: /etc/
       - name: iscsiusr
         hostPath:
-          path: /usr/sbin/
+          path: /sbin/
       - name: dev
         hostPath:
           path: /dev/
