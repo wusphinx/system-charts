@@ -33,7 +33,7 @@ questions:
   default:
 - variable: defaultSettings.createDefaultDiskLabeledNodes
   label: Create Default Disk on Labeled Nodes
-  description: 'Create default Disk automatically only on Nodes with the label "datanode=true" if no other Disks exist. If disabled, default Disk will be created on all new Nodes (only on first add). By default false.'
+  description: 'Create default Disk automatically only on Nodes with the label "node.cubepaas.io/create-default-disk" if no other Disks exist. If disabled, default Disk will be created on all new Nodes (only on first add). By default false.'
   group: "Storage Default Settings"
   type: boolean
   default: "false"
