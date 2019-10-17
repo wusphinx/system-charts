@@ -1,8 +1,8 @@
-# Default values for longhorn.
+# Default values for cubepaasBS.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 image:
-  longhorn:
+  storage:
     engine: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-engine
     engineTag: v0.6.0
     manager: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-manager
@@ -20,7 +20,6 @@ driver: csi
 persistence:
   # for GKE uses /home/kubernetes/flexvolume/ instead, User can find the correct directory by running ps aux|grep kubelet on the host and check the --volume-plugin-dir parameter.
   # If there is none, the default /usr/libexec/kubernetes/kubelet-plugins/volume/exec/ will be used.
-  flexvolumePath:
   defaultClass: "false"
   defaultClassReplicaCount: "3"
 
@@ -40,10 +39,10 @@ defaultSettings:
   replicaSoftAntiAffinity:
   storageOverProvisioningPercentage:
   storageMinimalAvailablePercentage:
-  upgradeChecker:
+  upgradeChecker: false
   defaultReplicaCount:
   guaranteedEngineCPU:
-  defaultLonghornStaticStorageClass:
+  defaultLonghornStaticStorageClass: "cubepaas-static"
   backupstorePollInterval:
   taintToleration:
 
@@ -66,43 +65,3 @@ resources:
   #  cpu: 100m
   #  memory: 128Mi
   #
-
-# ingress:
-#   ## Set to true to enable ingress record generation
-#   enabled: false
-
-
-#   host: xip.io
-
-#   ## Set this to true in order to enable TLS on the ingress record
-#   ## A side effect of this will be that the backend service will be connected at port 443
-#   tls: false
-
-#   ## If TLS is set to true, you must declare what secret will store the key/certificate for TLS
-#   tlsSecret: longhorn.local-tls
-
-#   ## Ingress annotations done as key:value pairs
-#   ## If you're using kube-lego, you will want to add:
-#   ## kubernetes.io/tls-acme: true
-#   ##
-#   ## For a full list of possible ingress annotations, please see
-#   ## ref: https://github.com/kubernetes/ingress-nginx/blob/master/docs/annotations.md
-#   ##
-#   ## If tls is set to true, annotation ingress.kubernetes.io/secure-backends: "true" will automatically be set
-#   annotations:
-#   #  kubernetes.io/ingress.class: nginx
-#   #  kubernetes.io/tls-acme: true
-
-#   secrets:
-#   ## If you're providing your own certificates, please use this to add the certificates as secrets
-#   ## key and certificate should start with -----BEGIN CERTIFICATE----- or
-#   ## -----BEGIN RSA PRIVATE KEY-----
-#   ##
-#   ## name should line up with a tlsSecret set further up
-#   ## If you're using kube-lego, this is unneeded, as it will create the secret for you if it is not set
-#   ##
-#   ## It is also possible to create and manage the certificates outside of this helm chart
-#   ## Please see README.md for more information
-#   # - name: longhorn.local-tls
-#   #   key:
-#   #   certificate:
