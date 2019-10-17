@@ -3,9 +3,9 @@ name: cubepaas-bs
 version: 0.6.0
 appVersion: v0.6.0
 kubeVersion: ">=v1.12.0-r0"
-description: cubepaas-bs is a distributed block storage system for Kubernetes
+description: cubepaasBS is a distributed block storage system for Kubernetes.
 keywords:
-- cubepaas-bs
+- cubepaasBS
 - storage
 - distributed
 - block

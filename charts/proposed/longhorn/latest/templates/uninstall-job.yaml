@@ -15,14 +15,14 @@ spec:
     spec:
       containers:
       - name: storagebs-uninstall
-        image: "{{ .Values.image.storage.manager }}:{{ .Values.image.storage.managerTag }}"
+        image: "{{ .Values.image.cubepaas.manager }}:{{ .Values.image.cubepaas.managerTag }}"
         imagePullPolicy: Always
         command:
         - longhorn-manager
         - uninstall
         - --force
         env:
-        - name: LONGHORN_NAMESPACE
+        - name: CUBEPAAS_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
