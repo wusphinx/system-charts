@@ -39,10 +39,10 @@ questions:
   default: "false"
 - variable: defaultSettings.defaultDataPath
   label: Default Data Path
-  description: 'Default path to use for storing data on a host. By default "/var/lib/cubepaas/bs/"'
+  description: 'Default path to use for storing data on a host. By default "/var/lib/rancher/longhorn/"'
   group: "Storage Default Settings"
   type: string
-  default: "/var/lib/cubepaas/bs/"
+  default: "/var/lib/rancher/longhorn/"
 - variable: defaultSettings.replicaSoftAntiAffinity
   label: Replica Soft Anti-Affinity
   description: 'Allow scheduling on nodes with existing healthy replicas of the same volume. By default true.'

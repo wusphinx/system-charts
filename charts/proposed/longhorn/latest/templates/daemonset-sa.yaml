@@ -60,10 +60,10 @@ spec:
         - name: varrun
           mountPath: /var/run/
         - name: cubepaas
-          mountPath: /var/lib/cubepaas/bs/
+          mountPath: /var/lib/rancher/longhorn/
           mountPropagation: Bidirectional
         - name: storage-default-setting
-          mountPath: /var/lib/bs/setting/
+          mountPath: /var/lib/longhorn/setting/
         env:
         - name: POD_NAMESPACE
           valueFrom:
@@ -80,7 +80,7 @@ spec:
         - name: LONGHORN_BACKEND_SVC
           value: storagebs-backend
         - name: DEFAULT_SETTING_PATH
-          value: /var/lib/bs/setting/default-setting.yaml
+          value: /var/lib/longhorn/setting/default-setting.yaml
       volumes:
       - name: etc
         hostPath:
@@ -99,7 +99,7 @@ spec:
           path: /var/run/
       - name: cubepaas
         hostPath:
-          path: /var/lib/cubepaas/bs/
+          path: /var/lib/rancher/longhorn/
       - name: storage-default-setting
         configMap:
           name: storage-default-setting
