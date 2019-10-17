@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   labels:
@@ -41,7 +41,7 @@ spec:
         - --manager-image
         - "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
         - --service-account
-        - longhorn-service-account
+        - storagebs-service-account
         ports:
         - containerPort: 9500
           name: manager
@@ -62,6 +62,8 @@ spec:
         - name: longhorn
           mountPath: /var/lib/rancher/longhorn/
           mountPropagation: Bidirectional
+        - name: longhorn-default-setting
+          mountPath: /var/lib/longhorn/setting/
         env:
         - name: POD_NAMESPACE
           valueFrom:
@@ -77,6 +79,8 @@ spec:
               fieldPath: spec.nodeName
         - name: LONGHORN_BACKEND_SVC
           value: storagebs-backend
+        - name: DEFAULT_SETTING_PATH
+          value: /var/lib/longhorn/setting/default-setting.yaml
       volumes:
       - name: etc
         hostPath:
@@ -96,7 +100,10 @@ spec:
       - name: longhorn
         hostPath:
           path: /var/lib/rancher/longhorn/
-      serviceAccountName: longhorn-service-account
+      - name: longhorn-default-setting
+        configMap:
+          name: longhorn-default-setting
+      serviceAccountName: storagebs-service-account
 ---
 apiVersion: v1
 kind: Service

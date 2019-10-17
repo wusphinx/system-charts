@@ -11,10 +11,10 @@ spec:
   backoffLimit: 1
   template:
     metadata:
-      name: longhorn-uninstall
+      name: storagebs-uninstall
     spec:
       containers:
-      - name: longhorn-uninstall
+      - name: storagebs-uninstall
         image: "{{ .Values.image.longhorn.manager }}:{{ .Values.image.longhorn.managerTag }}"
         imagePullPolicy: Always
         command:
@@ -27,4 +27,4 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
       restartPolicy: OnFailure
-      serviceAccountName: longhorn-service-account
+      serviceAccountName: storagebs-service-account
