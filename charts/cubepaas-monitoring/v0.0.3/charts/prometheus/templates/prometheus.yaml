@@ -136,6 +136,7 @@ spec:
   serviceAccountName: {{ default (default (include "app.fullname" .) .Values.serviceAccountName) .Values.serviceAccountNameOverride }}
 {{- end }}
 {{- if or (.Values.serviceMonitorSelector) (eq .Values.level "project") }}
+  serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector:
 {{ toYaml .Values.serviceMonitorSelector | indent 4 }}
 {{- end }}
