@@ -145,7 +145,7 @@ spec:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     url: {{ printf "%s%s" .Values.sync.target .Values.sync.path }}
 {{- end }}
-{{ include "rule.namespace.selector" . | indent 2}}
+  ruleNamespaceSelector: {}
 {{ include "rule.selector" . | indent 2 }}
 {{- if or .Values.storageSpec .Values.persistence.enabled }}
   storage:
