@@ -359,3 +359,9 @@ global:
   systemDefaultRegistry: ""
   clusterName: ""
   projectName: ""
+
+prometheus-adapter:
+  enabled: false
+  prometheus:
+    url: http://access-prometheus
+    port: 80
