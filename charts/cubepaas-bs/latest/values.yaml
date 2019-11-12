@@ -46,7 +46,7 @@ defaultSettings:
   upgradeChecker: false
   defaultReplicaCount:
   guaranteedEngineCPU:
-  defaultLonghornStaticStorageClass: cubepaas-static
+  defaultLonghornStaticStorageClass: storagebs
   backupstorePollInterval:
   taintToleration:
 
