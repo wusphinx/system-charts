@@ -73,3 +73,8 @@ dependencies:
     version: 0.0.1
     condition: dingtalk.enabled
     repository: "file://./charts/dingtalk/"
+
+  - name: prometheus-adapter
+    version: 1.4.0
+    condition: prometheus-adapter.enabled
+    repository: "file://./charts/prometheus-adapter/"
