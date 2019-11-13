@@ -78,3 +78,8 @@ dependencies:
     version: 1.4.0
     condition: prometheus-adapter.enabled
     repository: "file://./charts/prometheus-adapter/"
+
+  - name: prometheus-adapter-reloader
+    version: 0.0.1
+    condition: prometheus-adapter.enabled
+    repository: "file://./charts/reloader/"
