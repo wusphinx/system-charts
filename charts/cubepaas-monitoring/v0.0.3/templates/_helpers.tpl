@@ -161,3 +161,40 @@ Create the name of the service account to use
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Expand the name of the chart.
+*/}}
+{{- define "reloader-name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" | lower -}}
+{{- end -}}
+
+{{/*
+Create a default fully qualified app name.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "reloader-fullname" -}}
+{{- $name := include "app.name" . -}}
+{{- printf "%s-%s" $name .Release.Name -}}
+{{- end -}}
+
+{{- define "reloader-labels.selector" -}}
+app: {{ template "reloader-name" . }}
+release: {{ .Release.Name | quote }}
+{{- end -}}
+
+{{- define "reloader-labels.chart" -}}
+chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+heritage: {{ .Release.Service | quote }}
+{{- end -}}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "serviceAccountName" -}}
+{{- if .Values.reloader.serviceAccount.create -}}
+    {{ default (include "reloader-fullname" .) .Values.reloader.serviceAccount.name }}
+{{- else -}}
+    {{ default "default" .Values.reloader.serviceAccount.name }}
+{{- end -}}
+{{- end -}}

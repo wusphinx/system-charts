@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    configmap.reloader.stakater.com/reload: {{ template "k8s-prometheus-adapter.fullname" . }}
   labels:
     app: {{ template "k8s-prometheus-adapter.name" . }}
     chart: {{ template "k8s-prometheus-adapter.chart" . }}
