@@ -16,6 +16,7 @@ rules:
   - pods
   - services
   - configmaps
+  - deployment
   verbs:
   - get
   - list
