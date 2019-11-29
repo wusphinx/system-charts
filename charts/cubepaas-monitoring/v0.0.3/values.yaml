@@ -298,6 +298,7 @@ prometheus:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/nginx
       tag: 1.15.8-alpine
   nodeSelectors: []
+  logFormat: "logfmt"
   resources:
     core:
       limits:
@@ -332,8 +333,6 @@ prometheus:
   ##
   serviceAccountNameOverride: ""
   ruleNamespaceSelector: {}
-  ruleSelector:
-    matchExpressions: []
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector:
     matchExpressions: []
