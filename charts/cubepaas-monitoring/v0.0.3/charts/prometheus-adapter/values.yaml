@@ -2,7 +2,7 @@
 affinity: {}
 
 image:
-  repository: directxman12/k8s-prometheus-adapter-amd64
+  repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/k8s-prometheus-adapter-amd64
   tag: v0.5.0
   pullPolicy: IfNotPresent
 

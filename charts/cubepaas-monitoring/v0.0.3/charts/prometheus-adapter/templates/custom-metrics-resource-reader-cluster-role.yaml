@@ -19,4 +19,13 @@ rules:
   verbs:
   - get
   - list
+- apiGroups:
+  - extensions
+  - apps
+  resources:
+  - deployments
+  - replicasets
+  verbs:
+  - get
+  - list
 {{- end -}}
