@@ -290,7 +290,7 @@ prometheus:
   apiGroup: "monitoring.coreos.com"
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/prom-prometheus
-    tag: v2.7.1
+    tag: test
     auth:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/prometheus-auth
       tag: v0.2.0
