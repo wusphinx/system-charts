@@ -289,8 +289,8 @@ prometheus:
           fieldPath: status.podIP
   apiGroup: "monitoring.coreos.com"
   image:
-    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/prom-prometheus
-    tag: test
+    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/test-prometheus
+    tag: v2.7.1
     auth:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/prometheus-auth
       tag: v0.2.0
