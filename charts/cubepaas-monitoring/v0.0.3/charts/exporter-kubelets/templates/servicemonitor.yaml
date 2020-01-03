@@ -45,6 +45,12 @@ spec:
       action: replace
       regex: (.+)
       replacement: $1
+    - sourceLabels:
+      - __meta_kubernetes_pod_top_uid
+      targetLabel: top_uid
+      action: replace
+      regex: (.+)
+      replacement: $1
   - port: https-metrics
     scheme: https
     path: /metrics/cadvisor
@@ -68,6 +74,12 @@ spec:
       action: replace
       regex: (.+)
       replacement: $1
+    - sourceLabels:
+      - __meta_kubernetes_pod_top_uid
+      targetLabel: top_uid
+      action: replace
+      regex: (.+)
+      replacement: $1
   {{- else }}
   - port: http-metrics
     relabelings:
@@ -80,6 +92,12 @@ spec:
     - sourceLabels:
       - __meta_kubernetes_pod_node_name
       targetLabel: node
+      action: replace
+      regex: (.+)
+      replacement: $1
+    - sourceLabels:
+      - __meta_kubernetes_pod_top_uid
+      targetLabel: top_uid
       action: replace
       regex: (.+)
       replacement: $1
@@ -99,4 +117,11 @@ spec:
       action: replace
       regex: (.+)
       replacement: $1
+    - sourceLabels:
+      - __meta_kubernetes_pod_top_uid
+      targetLabel: top_uid
+      action: replace
+      regex: (.+)
+      replacement: $1
+
   {{- end }}
