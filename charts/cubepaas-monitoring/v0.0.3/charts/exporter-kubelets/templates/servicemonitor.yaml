@@ -47,7 +47,7 @@ spec:
       replacement: $1
     - sourceLabels:
       - __meta_kubernetes_pod_top_uid
-      targetLabel: top_uid
+      targetLabel: owneruid
       action: replace
       regex: (.*)
       replacement: $1
@@ -76,7 +76,7 @@ spec:
       replacement: $1
     - sourceLabels:
       - __meta_kubernetes_pod_top_uid
-      targetLabel: top_uid
+      targetLabel: owneruid
       action: replace
       regex: (.*)
       replacement: $1
@@ -97,7 +97,7 @@ spec:
       replacement: $1
     - sourceLabels:
       - __meta_kubernetes_pod_top_uid
-      targetLabel: top_uid
+      targetLabel: owneruid
       action: replace
       regex: (.*)
       replacement: $1
@@ -119,7 +119,7 @@ spec:
       replacement: $1
     - sourceLabels:
       - __meta_kubernetes_pod_top_uid
-      targetLabel: top_uid
+      targetLabel: owneruid
       action: replace
       regex: (.*)
       replacement: $1
