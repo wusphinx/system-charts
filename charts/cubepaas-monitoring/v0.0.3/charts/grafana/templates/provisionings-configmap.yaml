@@ -9,7 +9,7 @@ metadata:
   name: {{ template "app.provisionings.fullname" . }}
 data:
   dashboards.yaml: |+
-    - name: RANCHER_MONITORING
+    - name: CUBEPAAS_MONITORING
       orgId: 1
       folder: ''
       type: file
@@ -23,7 +23,7 @@ data:
     apiVersion: 1
 
     datasources:
-    - name: RANCHER_MONITORING
+    - name: CUBEPAAS_MONITORING
       type: prometheus
       access: proxy
       basicAuth: false
