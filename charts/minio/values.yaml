@@ -6,7 +6,7 @@ clusterDomain: cluster.local
 ##
 image:
   repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/minio
-  tag: 20200207
+  tag: v20200207
   pullPolicy: IfNotPresent
 
 ## Set default image, imageTag, and imagePullPolicy for the `mc` (the minio
@@ -14,7 +14,7 @@ image:
 ##
 mcImage:
   repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/mc
-  tag: 20200214
+  tag: v20200214
   pullPolicy: IfNotPresent
 
 ## minio server mode, i.e. standalone or distributed.
