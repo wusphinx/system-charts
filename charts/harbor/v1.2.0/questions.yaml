@@ -95,7 +95,7 @@ questions:
   - "oss"
   - "swift"
 - variable: persistence.imageChartStorage.disableredirect
-  default: false
+  default: true
   description: "Specify whether to disable `redirect` for images and chart storage, for backends which not supported it (such as using minio for `s3` storage type), please disable it"
   type: boolean
   label: Disable Redirect
@@ -152,7 +152,7 @@ questions:
   show_if: "persistence.imageChartStorage.type=s3"
   group: "Storage Settings"
 - variable: persistence.imageChartStorage.s3.region
-  required: true
+  required: false
   default: "us-west-1"
   description: "S3 region"
   type: string
