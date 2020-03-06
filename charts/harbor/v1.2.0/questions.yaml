@@ -33,7 +33,7 @@ questions:
 # Harbor Expose Service
 - variable: expose.type
   required: true
-  default: "ingress"
+  default: "nodePort"
   description: "Set the way how to expose the service"
   type: enum
   label: Harbor Proxy Service Type
@@ -88,11 +88,11 @@ questions:
   group: "Storage Settings"
   required: true
   options:
+  - "s3"
+  - "oss"
   - "filesystem"
   - "azure"
   - "gcs"
-  - "s3"
-  - "oss"
   - "swift"
 - variable: persistence.imageChartStorage.disableredirect
   default: true
@@ -246,7 +246,7 @@ questions:
   group: "Storage Settings"
 # persistence options
 - variable: persistence.enabled
-  default: false
+  default: true
   description: "Enable persistent volume type for Harbor services"
   type: boolean
   required: true
@@ -501,13 +501,13 @@ questions:
   label: Enable Clair
   group: "Notary, Clair & Cert"
 - variable: notary.enabled
-  default: true
+  default: false
   description: "Notary is a tool for publishing and managing trusted collections of content like Docker images. Publishers can digitally sign collections and consumers can verify integrity and origin of content"
   type: boolean
   label: Enable Notary
   group: "Notary, Clair & Cert"
 - variable: chartmuseum.enabled
-  default: true
+  default: false
   description: "Enable Chartmuseum to support Helm chart repository in Harbor"
   type: boolean
   label: Enable Helm Chart Repository in Harbor
