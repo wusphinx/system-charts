@@ -298,7 +298,7 @@ portal:
 core:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-core
-    tag: v1.9.1
+    tag: v1.9.2
   replicas: 1
 # resources:
 #  requests:
