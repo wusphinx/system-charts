@@ -2,7 +2,7 @@ expose:
   # Set the way how to expose the service. Set the type as "ingress",
   # "clusterIP", "nodePort" or "loadBalancer" and fill the information
   # in the corresponding section
-  type: ingress
+  type: nodePort
   tls:
     # Enable the tls or not. Note: if the type is "ingress" and the tls
     # is disabled, the port must be included in the command when pull/push
@@ -163,7 +163,7 @@ persistence:
     # Refer to
     # https://github.com/docker/distribution/blob/master/docs/configuration.md#redirect
     # for the detail.
-    disableredirect: false
+    disableredirect: true
     # Specify the "caBundleSecretName" if the storage service uses a self-signed certificate.
     # The secret must contain keys named "ca.crt" which will be injected into the trust store
     # of registry's and chartmuseum's containers.
@@ -173,65 +173,65 @@ persistence:
     # "oss" and fill the information needed in the corresponding section. The type
     # must be "filesystem" if you want to use persistent volumes for registry
     # and chartmuseum
-    type: filesystem
+    type: s3
     filesystem:
       rootdirectory: /storage
-      #maxthreads: 100
+      # maxthreads: 100
     azure:
       accountname: accountname
       accountkey: base64encodedaccountkey
       container: containername
-      #realm: core.windows.net
+      # realm: core.windows.net
     gcs:
       bucket: bucketname
       # The base64 encoded json file which contains the key
       encodedkey: base64-encoded-json-key-file
-      #rootdirectory: /gcs/object/name/prefix
-      #chunksize: "5242880"
+      # rootdirectory: /gcs/object/name/prefix
+      # chunksize: "5242880"
     s3:
       region: us-west-1
       bucket: bucketname
-      #accesskey: awsaccesskey
-      #secretkey: awssecretkey
-      #regionendpoint: http://myobjects.local
-      #encrypt: false
-      #keyid: mykeyid
-      #secure: true
-      #v4auth: true
-      #chunksize: "5242880"
-      #rootdirectory: /s3/object/name/prefix
-      #storageclass: STANDARD
+      # accesskey: awsaccesskey
+      # secretkey: awssecretkey
+      # regionendpoint: http://myobjects.local
+      # encrypt: false
+      # keyid: mykeyid
+      # secure: true
+      # v4auth: true
+      # chunksize: "5242880"
+      # rootdirectory: /s3/object/name/prefix
+      # storageclass: STANDARD
     swift:
       authurl: https://storage.myprovider.com/v3/auth
       username: username
       password: password
       container: containername
-      #region: fr
-      #tenant: tenantname
-      #tenantid: tenantid
-      #domain: domainname
-      #domainid: domainid
-      #trustid: trustid
-      #insecureskipverify: false
-      #chunksize: 5M
-      #prefix:
-      #secretkey: secretkey
-      #accesskey: accesskey
-      #authversion: 3
-      #endpointtype: public
-      #tempurlcontainerkey: false
-      #tempurlmethods:
+      # region: fr
+      # tenant: tenantname
+      # tenantid: tenantid
+      # domain: domainname
+      # domainid: domainid
+      # trustid: trustid
+      # insecureskipverify: false
+      # chunksize: 5M
+      # prefix:
+      # secretkey: secretkey
+      # accesskey: accesskey
+      # authversion: 3
+      # endpointtype: public
+      # tempurlcontainerkey: false
+      # tempurlmethods:
     oss:
       accesskeyid: accesskeyid
       accesskeysecret: accesskeysecret
       region: regionname
       bucket: bucketname
-      #endpoint: endpoint
-      #internal: false
-      #encrypt: false
-      #secure: true
-      #chunksize: 10M
-      #rootdirectory: rootdirectory
+      # endpoint: endpoint
+      # internal: false
+      # encrypt: false
+      # secure: true
+      # chunksize: 10M
+      # rootdirectory: rootdirectory
 
 imagePullPolicy: IfNotPresent
 
@@ -300,9 +300,6 @@ core:
     repository: goharbor/harbor-core
     tag: v1.9.2
   replicas: 1
-  ## Liveness probe values
-  livenessProbe:
-    initialDelaySeconds: 300
 # resources:
 #  requests:
 #    memory: 256Mi
@@ -392,7 +389,7 @@ registry:
       privateKeySecret: "my-secret"
 
 chartmuseum:
-  enabled: true
+  enabled: false
   # Harbor defaults ChartMuseum to returning relative urls, if you want using absolute url you should enable it by change the following value to 'true'
   absoluteUrl: false
   image:
@@ -429,7 +426,7 @@ clair:
   podAnnotations: {}
 
 notary:
-  enabled: true
+  enabled: false
   server:
     image:
       repository: goharbor/notary-server-photon
@@ -532,3 +529,6 @@ redis:
     password: ""
   ## Additional deployment annotations
   podAnnotations: {}
+
+cert:
+  enabled: true
