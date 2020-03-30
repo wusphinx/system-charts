@@ -71,7 +71,16 @@ spec:
         runAsNonRoot: true
         runAsUser: 65534
       tolerations:
-      - operator: Exists
+        - effect: NoSchedule
+           operator: Exists
+        - effect: NoExecute
+          operator: Exists
+        - key: "node-role.kubernetes.io/controlplane"
+          operator: "Exists"
+          effect: "NoSchedule"
+        - key: "node-role.kubernetes.io/etcd"
+          operator: "Exists"
+          effect: "NoExecute"
       nodeSelector:
         beta.kubernetes.io/os: linux
         {{- range .Values.nodeSelectors }}
