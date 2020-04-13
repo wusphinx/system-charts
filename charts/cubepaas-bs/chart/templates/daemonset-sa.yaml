@@ -28,7 +28,7 @@ spec:
           mountPath: /etc/ 
       containers:
       - name: storagebs-manager
-        image: "{{ .Values.image.cubepaas.manager }}:{{ .Values.image.cubepaas.managerTag }}"
+        image: "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
         imagePullPolicy: Always
         securityContext:
           privileged: true
@@ -37,9 +37,11 @@ spec:
         - -d
         - daemon
         - --engine-image
-        - "{{ .Values.image.cubepaas.engine }}:{{ .Values.image.cubepaas.engineTag }}"
+        - "{{ .Values.image.storagebs.engine }}:{{ .Values.image.storagebs.engineTag }}"
+        - --instance-manager-image
+        - "{{ .Values.image.storagebs.instanceManager }}:{{ .Values.image.storagebs.instanceManagerTag }}"
         - --manager-image
-        - "{{ .Values.image.cubepaas.manager }}:{{ .Values.image.cubepaas.managerTag }}"
+        - "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
         - --service-account
         - storagebs-service-account
         ports:
@@ -62,8 +64,8 @@ spec:
         - name: cubepaas
           mountPath: /var/lib/cubepaas/bs/
           mountPropagation: Bidirectional
-        - name: cubepaas-default-setting
-          mountPath: /var/lib/bs/setting/
+        - name: storagebs-default-setting
+          mountPath: /var/lib/cubepaas-setting/
         env:
         - name: POD_NAMESPACE
           valueFrom:
@@ -80,7 +82,7 @@ spec:
         - name: CUBEPAAS_BACKEND_SVC
           value: storagebs-backend
         - name: DEFAULT_SETTING_PATH
-          value: /var/lib/bs/setting/default-setting.yaml
+          value: /var/lib/cubepaas-setting/default-setting.yaml
       volumes:
       - name: etc
         hostPath:
@@ -100,10 +102,13 @@ spec:
       - name: cubepaas
         hostPath:
           path: /var/lib/cubepaas/bs/
-      - name: cubepaas-default-setting
+      - name: storagebs-default-setting
         configMap:
-          name: cubepaas-default-setting
+          name: storagebs-default-setting
       serviceAccountName: storagebs-service-account
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: "100%"
 ---
 apiVersion: v1
 kind: Service

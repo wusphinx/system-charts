@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: storagebs-uninstall
-        image: "{{ .Values.image.cubepaas.manager }}:{{ .Values.image.cubepaas.managerTag }}"
+        image: "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
         imagePullPolicy: Always
         command:
         - longhorn-manager
