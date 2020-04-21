@@ -7,6 +7,7 @@ data:
   default-setting.yaml: |-
     backup-target: {{ .Values.defaultSettings.backupTarget }}
     interface-name: {{ .Values.defaultSettings.interfaceName }}
+    host-network: {{ .Values.defaultSettings.hostNetwork }}
     backup-target-credential-secret: {{ .Values.defaultSettings.backupTargetCredentialSecret }}
     create-default-disk-labeled-nodes: {{ .Values.defaultSettings.createDefaultDiskLabeledNodes }}
     default-data-path: {{ .Values.defaultSettings.defaultDataPath }}
