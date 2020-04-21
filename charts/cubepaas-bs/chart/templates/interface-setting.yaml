@@ -5,4 +5,8 @@ metadata:
     cubepaas.com/creator: linkcloud
   name: interface-name
   namespace: {{ .Release.Namespace }}
+{{- if .Values.defaultSettings.hostNetwork }}
 value: {{ .Values.defaultSettings.interfaceName }}
+{{- else }}
+value: 
+{{- end }}
