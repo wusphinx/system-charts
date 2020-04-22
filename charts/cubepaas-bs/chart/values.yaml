@@ -37,7 +37,7 @@ defaultSettings:
   storageOverProvisioningPercentage:
   storageMinimalAvailablePercentage:
   upgradeChecker: false
-  hostNetwork: false
+  hostNetwork: true
   defaultReplicaCount:
   guaranteedEngineCPU:
   defaultLonghornStaticStorageClass: storagebs
