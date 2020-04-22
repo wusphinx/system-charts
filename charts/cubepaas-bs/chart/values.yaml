@@ -6,7 +6,7 @@ image:
     engine: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-engine
     engineTag: v0.8.2
     manager: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-manager
-    managerTag: v0.8.1
+    managerTag: v0.8.2
     instanceManager: registry.cn-hangzhou.aliyuncs.com/link-cloud/storagebs-im
     instanceManagerTag: v0414
   pullPolicy: IfNotPresent
@@ -37,7 +37,7 @@ defaultSettings:
   storageOverProvisioningPercentage:
   storageMinimalAvailablePercentage:
   upgradeChecker: false
-  hostNetwork: true
+  hostNetwork: false
   defaultReplicaCount:
   guaranteedEngineCPU:
   defaultLonghornStaticStorageClass: storagebs

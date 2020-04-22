@@ -5,4 +5,4 @@ metadata:
     cubepaas.com/creator: linkcloud
   name: host-network
   namespace: {{ .Release.Namespace }}
-value: {{ .Values.defaultSettings.hostNetwork }}
+value: "{{ .Values.defaultSettings.hostNetwork }}"
