@@ -196,8 +196,8 @@ persistence:
       # regionendpoint: http://myobjects.local
       # encrypt: false
       # keyid: mykeyid
-      # secure: true
-      # v4auth: true
+      secure: false
+      v4auth: false
       # chunksize: "5242880"
       # rootdirectory: /s3/object/name/prefix
       # storageclass: STANDARD
