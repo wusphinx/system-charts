@@ -6,8 +6,8 @@ maintainers:
 name: cubepaas-monitoring
 sources:
 - https://github.com/coreos/prometheus-operator
-version: 0.0.7
-appVersion: 0.0.7
+version: 0.0.3
+appVersion: 0.0.3
 home: https://github.com/coreos/prometheus-operator
 keywords:
 - operator
