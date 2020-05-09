@@ -29,6 +29,7 @@ rules:
   - "watch"
 - apiGroups: 
   - "extensions"
+  - "apps"
   resources:
   - daemonsets
   - deployments
@@ -64,6 +65,28 @@ rules:
   resources:
   - "poddisruptionbudgets"
   verbs: 
+  - "list"
+  - "watch"
+- apiGroups:
+  - "extensions"
+  - "networking.k8s.io"
+  resources:
+  - ingresses
+  verbs:
+  - "list"
+  - "watch"
+- apiGroups:
+  - "certificates.k8s.io"
+  resources:
+  - certificatesigningrequests
+  verbs:
+  - "list"
+  - "watch"
+- apiGroups:
+  - "storage.k8s.io"
+  resources:
+    - storageclasses
+  verbs:
   - "list"
   - "watch"
 

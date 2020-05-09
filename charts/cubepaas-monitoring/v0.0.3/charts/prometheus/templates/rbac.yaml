@@ -29,7 +29,8 @@ rules:
   - "get"
 - apiGroups:
   - "extensions"
-  verbs: 
+  - "networking.k8s.io"
+  verbs:
   - "list"
   - "watch"
   resources:

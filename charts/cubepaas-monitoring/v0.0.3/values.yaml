@@ -4,10 +4,10 @@ operator:
   apiGroup: "monitoring.coreos.com"
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/coreos-prometheus-operator
-    tag: v0.29.0
+    tag: v0.32.0
     prometheusConfigReloader:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/coreos-prometheus-config-reloader
-      tag: v0.29.0
+      tag: v0.32.0
     configmapReload:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/coreos-configmap-reload
       tag: v0.0.1
@@ -169,7 +169,7 @@ exporter-kube-state:
   apiGroup: "monitoring.coreos.com"
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/coreos-kube-state-metrics
-    tag: v1.5.0
+    tag: v1.8.0
   nodeSelectors: []
   resources:
     limits:
@@ -182,6 +182,8 @@ exporter-kube-state:
   ##
   serviceAccountName: ""
   securityContext: {}
+  livenessProbe: {}
+  readinessProbe: {}
 
 alertmanager:
   enabled: false
@@ -232,13 +234,13 @@ grafana:
   apiGroup: "monitoring.coreos.com"
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/grafana-grafana
-    tag: 5.4.3
+    tag: 6.3.6
     tool:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/prometheus-auth
       tag: v0.2.0
     proxy:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/nginx
-      tag: 1.15.8-alpine
+      tag: 1.17.4-alpine
   nodeSelectors: []
   resources:
     inits:
@@ -272,6 +274,8 @@ grafana:
   ##
   serviceAccountName: ""
   prometheusDatasourceURL: "http://prometheus-operated:9090"
+  livenessProbe: {}
+  readinessProbe: {}
 
 prometheus:
   enabled: false
@@ -290,13 +294,13 @@ prometheus:
   apiGroup: "monitoring.coreos.com"
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/prom-prometheus
-    tag: v2.7.1
+    tag: v2.11.1
     auth:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/prometheus-auth
       tag: v0.2.0
     proxy:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/nginx
-      tag: 1.15.8-alpine
+      tag: 1.17.4-alpine
   nodeSelectors: []
   logFormat: "logfmt"
   resources:
@@ -333,6 +337,8 @@ prometheus:
   ##
   serviceAccountNameOverride: ""
   ruleNamespaceSelector: {}
+  ruleSelector:
+    matchExpressions: []
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector:
     matchExpressions: []

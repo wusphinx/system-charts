@@ -21,7 +21,8 @@ rules:
   - prometheusrules
   - prometheuses/finalizers
   - alertmanagers/finalizers
-  verbs: 
+  - podmonitors
+  verbs:
   - "*"
 - apiGroups:
   - apps
@@ -44,11 +45,13 @@ rules:
 - apiGroups: [""]
   resources:
   - services
+  - services/finalizers
   - endpoints
   verbs: 
   - get
   - create
   - update
+  - delete
 - apiGroups: [""]
   resources:
   - nodes
