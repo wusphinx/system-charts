@@ -8,7 +8,7 @@ reloader:
       group: com.stakater.platform
     image:
       name: registry.cn-hangzhou.aliyuncs.com/link-cloud/reloader
-      tag: "v0.0.29"
+      tag: "v0.0.43"
       pullPolicy: IfNotPresent
     # Support for extra environment variables.
     env:
