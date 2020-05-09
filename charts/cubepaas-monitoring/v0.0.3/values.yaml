@@ -363,7 +363,8 @@ dingtalk:
 global:
   systemDefaultRegistry: ""
   clusterName: ""
-  projectName: ""
+  projectName:
+  installCRDs: true
 
 prometheus-adapter:
   enabled: false
