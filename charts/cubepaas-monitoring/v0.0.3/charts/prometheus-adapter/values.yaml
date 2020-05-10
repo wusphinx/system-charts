@@ -18,7 +18,7 @@ priorityClassName: ""
 
 # Url to access prometheus
 prometheus:
-  url: http://prometheus.default.svc
+  url: http://prometheus-k8s.monitoring.svc
   port: 9090
 
 replicas: 1
