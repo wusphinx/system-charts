@@ -19,7 +19,6 @@ rules:
   verbs:
   - get
   - list
-  - watch
 - apiGroups:
   - extensions
   - apps
@@ -29,5 +28,4 @@ rules:
   verbs:
   - get
   - list
-  - watch
 {{- end -}}
