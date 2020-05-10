@@ -12,9 +12,7 @@ rules:
 - apiGroups:
   - ""
   resources:
-  - pods
-  - nodes
-  - nodes/stats
+  - "*"
   verbs:
   - get
   - list
