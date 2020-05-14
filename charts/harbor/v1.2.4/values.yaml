@@ -301,7 +301,7 @@ core:
     tag: v1.9.4
   replicas: 1
 resources:
- requests:
+  requests:
    memory: 256Mi
    cpu: 100m
   nodeSelector: {}
@@ -358,10 +358,10 @@ registry:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-registryctl
       tag: v1.9.4
 
-    resources:
-     requests:
-       memory: 256Mi
-       cpu: 100m
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
   replicas: 1
   nodeSelector: {}
   tolerations: []
