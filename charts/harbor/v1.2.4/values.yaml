@@ -269,7 +269,7 @@ nginx:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-nginx-photon
     tag: v1.9.4
-  replicas: 2
+  replicas: 1
   # resources:
   #  requests:
   #    memory: 256Mi
@@ -299,7 +299,7 @@ core:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-core
     tag: v1.9.4
-  replicas: 2
+  replicas: 1
 resources:
  requests:
    memory: 256Mi
@@ -362,7 +362,7 @@ registry:
      requests:
        memory: 256Mi
        cpu: 100m
-  replicas: 2
+  replicas: 1
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -411,7 +411,7 @@ clair:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-clair-photon
     tag: v2.1.0-v1.9.4
-  replicas: 2
+  replicas: 1
   # The interval of clair updaters, the unit is hour, set to 0 to
   # disable the updaters
   updatersInterval: 12
