@@ -1,0 +1,30 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    creator.cubepaas.com/workloadID: deployment:{{ .Release.Namespace }}:{{ .Release.Name }}-harbor-core
+  labels:
+    cubepaas.com/creator: linkcloud
+  name: deployment-{{ .Release.Namespace }}-{{ .Release.Name }}-harbor-core-hpa
+  namespace: {{ .Release.Namespace }}
+spec:
+  maxReplicas: 3
+  metrics:
+  - pods:
+      metric:
+        name: CPU
+      target:
+        averageValue: "512"
+        type: AverageValue
+  - pods:
+      metric:
+        name: 内存
+      target:
+        averageValue: "268435456"
+        type: AverageValue
+    type: Pods
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: deployment
+    name: {{ .Release.Name }}-harbor-core
