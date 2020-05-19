@@ -16,6 +16,7 @@ spec:
       target:
         averageValue: "512"
         type: AverageValue
+    type: Pods
   - pods:
       metric:
         name: 内存
