@@ -6,7 +6,7 @@ expose:
   tls:
     # Enable the tls or not. Note: if the type is "ingress" and the tls
     # is disabled, the port must be included in the command when pull/push
-    # images. Refer to https://github.com/goharbor/harbor/issues/5291
+    # images. Refer to https://github.com/registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor/issues/5291
     # for the detail.
     enabled: true
     # Fill the name of secret if you want to use your own TLS certificate.
@@ -176,62 +176,62 @@ persistence:
     type: s3
     filesystem:
       rootdirectory: /storage
-      # maxthreads: 100
+      #maxthreads: 100
     azure:
       accountname: accountname
       accountkey: base64encodedaccountkey
       container: containername
-      # realm: core.windows.net
+      #realm: core.windows.net
     gcs:
       bucket: bucketname
       # The base64 encoded json file which contains the key
       encodedkey: base64-encoded-json-key-file
-      # rootdirectory: /gcs/object/name/prefix
-      # chunksize: "5242880"
+      #rootdirectory: /gcs/object/name/prefix
+      #chunksize: "5242880"
     s3:
       region: us-west-1
       bucket: bucketname
-      # accesskey: awsaccesskey
-      # secretkey: awssecretkey
-      # regionendpoint: http://myobjects.local
-      # encrypt: false
-      # keyid: mykeyid
-      secure: false
-      v4auth: false
-      # chunksize: "5242880"
-      # rootdirectory: /s3/object/name/prefix
-      # storageclass: STANDARD
+      #accesskey: awsaccesskey
+      #secretkey: awssecretkey
+      #regionendpoint: http://myobjects.local
+      #encrypt: false
+      #keyid: mykeyid
+      #secure: true
+      #v4auth: true
+      #chunksize: "5242880"
+      #rootdirectory: /s3/object/name/prefix
+      #storageclass: STANDARD
     swift:
       authurl: https://storage.myprovider.com/v3/auth
       username: username
       password: password
       container: containername
-      # region: fr
-      # tenant: tenantname
-      # tenantid: tenantid
-      # domain: domainname
-      # domainid: domainid
-      # trustid: trustid
-      # insecureskipverify: false
-      # chunksize: 5M
-      # prefix:
-      # secretkey: secretkey
-      # accesskey: accesskey
-      # authversion: 3
-      # endpointtype: public
-      # tempurlcontainerkey: false
-      # tempurlmethods:
+      #region: fr
+      #tenant: tenantname
+      #tenantid: tenantid
+      #domain: domainname
+      #domainid: domainid
+      #trustid: trustid
+      #insecureskipverify: false
+      #chunksize: 5M
+      #prefix:
+      #secretkey: secretkey
+      #accesskey: accesskey
+      #authversion: 3
+      #endpointtype: public
+      #tempurlcontainerkey: false
+      #tempurlmethods:
     oss:
       accesskeyid: accesskeyid
       accesskeysecret: accesskeysecret
       region: regionname
       bucket: bucketname
-      # endpoint: endpoint
-      # internal: false
-      # encrypt: false
-      # secure: true
-      # chunksize: 10M
-      # rootdirectory: rootdirectory
+      #endpoint: endpoint
+      #internal: false
+      #encrypt: false
+      #secure: true
+      #chunksize: 10M
+      #rootdirectory: rootdirectory
 
 imagePullPolicy: IfNotPresent
 
@@ -240,7 +240,8 @@ imagePullSecrets:
 #  - name: docker-registry-secret
 #  - name: internal-registry-secret
 
-logLevel: debug
+logLevel: info
+
 # The initial password of Harbor admin. Change it from portal after launching Harbor
 harborAdminPassword: "Harbor12345"
 # The secret key used for encryption. Must be a string of 16 chars.
@@ -300,10 +301,13 @@ core:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-core
     tag: v1.9.4
   replicas: 1
-resources:
-  requests:
-   memory: 256Mi
-   cpu: 100m
+  ## Liveness probe values
+  livenessProbe:
+    initialDelaySeconds: 300
+# resources:
+#  requests:
+#    memory: 256Mi
+#    cpu: 100m
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -320,6 +324,8 @@ resources:
   # "tls.key" - the private key
   # The default key pair will be used if it isn't set
   secretName: ""
+  # The XSRF key. Will be generated automatically if it isn't specified
+  xsrfKey: ""
 
 jobservice:
   image:
@@ -349,19 +355,19 @@ registry:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-registry-photon
       tag: v2.7.1-patch-2819-2553-v1.9.4
 
-    resources:
-     requests:
-       memory: 256Mi
-       cpu: 100m
+    # resources:
+    #  requests:
+    #    memory: 256Mi
+    #    cpu: 100m
   controller:
     image:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-registryctl
       tag: v1.9.4
 
-  resources:
-    requests:
-      memory: 256Mi
-      cpu: 100m
+    # resources:
+    #  requests:
+    #    memory: 256Mi
+    #    cpu: 100m
   replicas: 1
   nodeSelector: {}
   tolerations: []
@@ -415,10 +421,10 @@ clair:
   # The interval of clair updaters, the unit is hour, set to 0 to
   # disable the updaters
   updatersInterval: 12
-  resources:
-   requests:
-     memory: 256Mi
-     cpu: 100m
+  # resources:
+  #  requests:
+  #    memory: 256Mi
+  #    cpu: 100m
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -429,7 +435,7 @@ notary:
   enabled: false
   server:
     image:
-      repository: goharbor/notary-server-photon
+      repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-notary-server-photon
       tag: v0.6.1-v1.9.4
     replicas: 1
     # resources:
@@ -438,7 +444,7 @@ notary:
     #    cpu: 100m
   signer:
     image:
-      repository: goharbor/notary-signer-photon
+      repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-notary-signer-photon
       tag: v0.6.1-v1.9.4
     replicas: 1
     # resources:
@@ -466,6 +472,10 @@ database:
     image:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-db
       tag: v1.9.4
+    # the image used by the init container
+    initContainerImage:
+      repository: busybox
+      tag: latest
     # The initial superuser password for internal database
     password: "changeit"
     # resources:
@@ -529,6 +539,3 @@ redis:
     password: ""
   ## Additional deployment annotations
   podAnnotations: {}
-
-cert:
-  enabled: true

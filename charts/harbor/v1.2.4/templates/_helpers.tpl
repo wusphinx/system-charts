@@ -283,31 +283,3 @@ host:port,pool_size,password
 {{- define "harbor.noProxy" -}}
   {{- printf "%s,%s,%s,%s,%s,%s,%s,%s,%s" (include "harbor.core" .) (include "harbor.jobservice" .) (include "harbor.database" .) (include "harbor.chartmuseum" .) (include "harbor.clair" .) (include "harbor.notary-server" .) (include "harbor.notary-signer" .) (include "harbor.registry" .) .Values.proxy.noProxy -}}
 {{- end -}}
-
-{{- define "harbor.externalURL" -}}
-  {{- if eq .Values.expose.type "ingress" }}
-    {{- printf "https://%s" .Values.expose.ingress.hosts.core -}}
-  {{- else if eq .Values.expose.type "clusterIP" }}
-    {{- printf "https://%s" .Values.expose.clusterIP.name -}}
-  {{- else if eq .Values.expose.type "loadBalancer" }}
-    {{- printf "%s" .Values.expose.loadBalancer.IP -}}
-  {{- else }}
-    {{- .Values.externalURL -}}
-  {{- end }}
-{{- end -}}
-
-{{/*
-The commmon name used to generate the certificate, it's necessary when the type isn't "ingress"
-*/}}
-{{- define "harbor.tlsCommonName" -}}
-  {{- $trimURL := (include "harbor.externalURL" .)  | trimPrefix "https://"  | trimPrefix "http://" -}}
-  {{ regexReplaceAll ":.*$" $trimURL "${1}" }}
-{{- end -}}
-
-{{- define "harbor.cert" -}}
-  {{- printf "%s-cert" (include "harbor.fullname" .) -}}
-{{- end -}}
-
-{{- define "harbor.certPath" -}}
-  {{- (include "harbor.externalURL" .) | trimPrefix "https://"  | trimPrefix "http://" -}}
-{{- end -}}
