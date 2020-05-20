@@ -2,10 +2,6 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Release.Name }}-harbor-registry-hpa
-  annotations:
-    field.cubepaas.com/displayName: {{ .Release.Name }}-harbor-registry-hpa
-  labels:
-    cubepaas.com/creator: linkcloud
   namespace: {{ .Release.Namespace }}
 spec:
   maxReplicas: 3
