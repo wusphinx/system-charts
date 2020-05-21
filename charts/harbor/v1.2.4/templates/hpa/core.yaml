@@ -9,13 +9,13 @@ spec:
   - resource:
       name: cpu
       target:
-        averageValue: 256m
+        averageValue: 320m
         type: AverageValue
     type: Resource
   - resource:
       name: memory
       target:
-        averageValue: 512Mi
+        averageValue: 400Mi
         type: AverageValue
     type: Resource
   minReplicas: 1
