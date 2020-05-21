@@ -303,7 +303,10 @@ core:
 resources:
   requests:
    memory: 256Mi
-   cpu: 100m
+   cpu: 200m
+  limites:
+   memory: 512Mi
+   cpu: 400m
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -352,7 +355,10 @@ registry:
     resources:
      requests:
        memory: 256Mi
-       cpu: 100m
+       cpu: 200m
+     limits:
+       memory: 512Mi
+       cpu: 400m
   controller:
     image:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-registryctl
