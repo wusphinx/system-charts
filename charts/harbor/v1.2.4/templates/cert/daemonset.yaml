@@ -48,8 +48,9 @@ spec:
               path: {{ template "harbor.certPath" . }}/tls.key
             - key: tls.crt
               path: {{ template "harbor.certPath" . }}/tls.cert
-            - key: ca.crt
-              path: {{ template "harbor.certPath" . }}/ca.crt
+            # TODO  
+            # - key: ca.crt
+            #   path: {{ template "harbor.certPath" . }}/ca.crt
     {{- else }}
       - name: ca-cert
         secret:
@@ -63,7 +64,7 @@ spec:
               path: {{ template "harbor.certPath" . }}/tls.key
             - key: tls.crt
               path: {{ template "harbor.certPath" . }}/tls.cert
-            - key: ca.crt
-              path: {{ template "harbor.certPath" . }}/ca.crt
+            # - key: ca.crt
+            #   path: {{ template "harbor.certPath" . }}/ca.crt
     {{- end }}
 {{- end }}
