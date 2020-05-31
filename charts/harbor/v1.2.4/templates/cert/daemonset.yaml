@@ -38,7 +38,7 @@ spec:
     {{- if eq .Values.expose.type "ingress" }}
       - name: ca-cert
         secret:
-          secretName: {{ template "harbor.ingress" . }}
+          secretName: {{- if .Values.expose.tls.secretName }} {{- .Values.expose.tls.secretName -}} {{- else }} {{ template "harbor.ingress" . }} {{- end }}
           items:
             - key: tls.key
               path: {{ template "harbor.certPath" . }}/tls.key
@@ -49,7 +49,7 @@ spec:
     {{- else }}
       - name: ca-cert
         secret:
-          secretName: {{ template "harbor.nginx" . }}
+          secretName: {{- if .Values.expose.tls.secretName }} {{- .Values.expose.tls.secretName -}} {{- else }} {{ template "harbor.nginx" . }} {{- end }}
           items:
             - key: tls.key
               path: {{ template "harbor.certPath" . }}/tls.key
