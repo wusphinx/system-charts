@@ -13,6 +13,7 @@ spec:
     metadata:
       name: storagebs-post-upgrade
     spec:
+      priorityClassName: cubepaas-priority
       containers:
       - name: storagebs-post-upgrade
         image: "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"

@@ -13,6 +13,7 @@ spec:
     metadata:
       name: storagebs-uninstall
     spec:
+      priorityClassName: cubepaas-priority
       containers:
       - name: storagebs-uninstall
         image: "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
