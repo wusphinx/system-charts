@@ -18,6 +18,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  secret.reloader.stakater.com/reload: {{ .Release.Name }}-harbor-core
   name: harbor-exporter
   labels:
     app: harbor-exporter
