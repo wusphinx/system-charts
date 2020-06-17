@@ -224,7 +224,7 @@ persistence:
     oss:
       accesskeyid: accesskeyid
       accesskeysecret: accesskeysecret
-      region: regionname
+      # region: regionname
       bucket: bucketname
       # endpoint: endpoint
       # internal: false
