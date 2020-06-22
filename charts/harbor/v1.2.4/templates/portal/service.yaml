@@ -1,3 +1,4 @@
+{{- if .Values.portal.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -14,3 +15,4 @@ spec:
   selector:
 {{ include "harbor.matchLabels" . | indent 4 }}
     component: portal
+{{- end }}

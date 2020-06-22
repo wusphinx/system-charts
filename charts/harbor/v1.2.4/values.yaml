@@ -281,6 +281,7 @@ nginx:
   podAnnotations: {}
 
 portal:
+  enabled: false
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-portal
     tag: v1.9.4
