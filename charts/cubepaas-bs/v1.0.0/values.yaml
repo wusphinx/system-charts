@@ -1,0 +1,78 @@
+# Default values for longhorn.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  storagebs:
+    engine: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-engine
+    engineTag: v1.0.1
+    manager: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-manager
+    managerTag: v1.0.1
+    instanceManager: registry.cn-hangzhou.aliyuncs.com/link-cloud/storagebs-im
+    instanceManagerTag: v0622
+  pullPolicy: IfNotPresent
+
+persistence:
+  defaultClass: false
+  defaultClassReplicaCount: 3
+
+csi:
+  attacherImage: ~
+  provisionerImage: ~
+  nodeDriverRegistrarImage: ~
+  resizerImage: ~
+  kubeletRootDir: ~
+  attacherReplicaCount: ~
+  provisionerReplicaCount: ~
+  resizerReplicaCount: ~
+
+defaultSettings:
+  backupTarget: ~
+  backupTargetCredentialSecret: cubepaas-bs-credential
+  createDefaultDiskLabeledNodes: ~
+  defaultDataPath: ~
+  replicaSoftAntiAffinity: ~
+  storageOverProvisioningPercentage: ~
+  storageMinimalAvailablePercentage: ~
+  upgradeChecker: false
+  hostNetwork: true
+  defaultReplicaCount: ~
+  guaranteedEngineCPU: 0.25
+  defaultLonghornStaticStorageClass: storagebs
+  backupstorePollInterval: ~
+  taintToleration: ~
+  interfaceName:
+  registrySecret: ~
+  autoSalvage: true
+  disableSchedulingOnCordonedNode: true
+  replicaZoneSoftAntiAffinity: true
+  volumeAttachmentRecoveryPolicy: wait
+  mkfsExt4Parameters: ~
+
+privateRegistry:
+  registryUrl: ~
+  registryUser: ~
+  registryPasswd: ~
+
+resources:
+  manager:
+    limits:
+     cpu: 100m
+     memory: 128Mi
+    requests:
+     cpu: 100m
+     memory: 128Mi
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+  #
+awsSecret:
+  accessKey:
+  secretKey:
+  endPoints:
