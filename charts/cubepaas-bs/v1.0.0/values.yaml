@@ -11,6 +11,11 @@ image:
     instanceManagerTag: v0622
   pullPolicy: IfNotPresent
 
+service:
+  manager:
+    type: ClusterIP
+    nodePort: ""
+
 persistence:
   defaultClass: false
   defaultClassReplicaCount: 3
