@@ -224,7 +224,7 @@ persistence:
     oss:
       accesskeyid: accesskeyid
       accesskeysecret: accesskeysecret
-      region: regionname
+      # region: regionname
       bucket: bucketname
       # endpoint: endpoint
       # internal: false
@@ -281,6 +281,7 @@ nginx:
   podAnnotations: {}
 
 portal:
+  enabled: false
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-portal
     tag: v1.9.4
@@ -299,11 +300,14 @@ core:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-core
     tag: v1.9.4
-  replicas: 2
-# resources:
-#  requests:
-#    memory: 256Mi
-#    cpu: 100m
+  replicas: 1
+resources:
+  requests:
+   memory: 256Mi
+   cpu: 200m
+  limites:
+   memory: 512Mi
+   cpu: 400m
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -349,20 +353,23 @@ registry:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-registry-photon
       tag: v2.7.1-patch-2819-2553-v1.9.4
 
-    # resources:
-    #  requests:
-    #    memory: 256Mi
-    #    cpu: 100m
+    resources:
+     requests:
+       memory: 256Mi
+       cpu: 200m
+     limits:
+       memory: 512Mi
+       cpu: 400m
   controller:
     image:
       repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-registryctl
       tag: v1.9.4
 
-    # resources:
-    #  requests:
-    #    memory: 256Mi
-    #    cpu: 100m
-  replicas: 2
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+  replicas: 1
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -411,14 +418,14 @@ clair:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-clair-photon
     tag: v2.1.0-v1.9.4
-  replicas: 2
+  replicas: 1
   # The interval of clair updaters, the unit is hour, set to 0 to
   # disable the updaters
   updatersInterval: 12
-  # resources:
-  #  requests:
-  #    memory: 256Mi
-  #    cpu: 100m
+  resources:
+   requests:
+     memory: 256Mi
+     cpu: 100m
   nodeSelector: {}
   tolerations: []
   affinity: {}
