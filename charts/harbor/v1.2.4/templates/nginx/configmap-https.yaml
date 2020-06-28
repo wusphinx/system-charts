@@ -31,9 +31,11 @@ data:
         server {{ template "harbor.core" . }};
       }
 
+      {{- if .Values.portal.enabled }}
       upstream portal {
         server {{ template "harbor.portal" . }};
       }
+      {{- end }}
 
       {{- if .Values.notary.enabled }}
       upstream notary-server {
@@ -104,7 +106,9 @@ data:
         chunked_transfer_encoding on;
 
         location / {
+          {{- if .Values.portal.enabled }}
           proxy_pass http://portal/;
+          {{- end }}
           proxy_set_header Host $http_host;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
