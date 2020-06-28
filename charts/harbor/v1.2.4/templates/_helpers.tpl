@@ -311,3 +311,11 @@ The commmon name used to generate the certificate, it's necessary when the type 
 {{- define "harbor.certPath" -}}
   {{- (include "harbor.externalURL" .) | trimPrefix "https://"  | trimPrefix "http://" -}}
 {{- end -}}
+
+{{- define "system_default_registry" -}}
+{{- if .Values.global.systemDefaultRegistry -}}
+{{- printf "%s/" .Values.global.systemDefaultRegistry -}}
+{{- else -}}
+{{- "" -}}
+{{- end -}}
+{{- end -}}
