@@ -20,3 +20,11 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- $fullname := (include "longhorn.fullname" .) -}}
 {{- printf "http://%s-backend:9500" $fullname | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{- define "system_default_registry" -}}
+{{- if .Values.global.systemDefaultRegistry -}}
+{{- printf "%s/" .Values.global.systemDefaultRegistry -}}
+{{- else -}}
+{{- "" -}}
+{{- end -}}
+{{- end -}}

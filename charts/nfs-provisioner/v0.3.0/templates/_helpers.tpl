@@ -52,3 +52,11 @@ Create chart name and version as used by the chart label.
 {{- template "nfs-provisioner.fullname" . -}}
 {{- end -}}
 {{- end -}}
+
+{{- define "system_default_registry" -}}
+{{- if .Values.global.systemDefaultRegistry -}}
+{{- printf "%s/" .Values.global.systemDefaultRegistry -}}
+{{- else -}}
+{{- "" -}}
+{{- end -}}
+{{- end -}}

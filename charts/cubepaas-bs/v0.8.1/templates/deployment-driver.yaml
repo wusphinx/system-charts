@@ -16,18 +16,18 @@ spec:
       priorityClassName: cubepaas-priority
       initContainers:
         - name: wait-storagebs-manager
-          image: "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
+          image: "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
           command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://storagebs-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
       containers:
         - name: storagebs-driver-deployer
-          image: "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
+          image: "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
           imagePullPolicy: Always
           command:
           - longhorn-manager
           - -d
           - deploy-driver
           - --manager-image
-          - "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
+          - "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
           - --manager-url
           - http://storagebs-backend:9500/v1
           env:
@@ -49,19 +49,19 @@ spec:
           {{- end }}
           {{- if .Values.csi.attacherImage }}
           - name: CSI_ATTACHER_IMAGE
-            value: {{ .Values.csi.attacherImage }}
+            value: {{ template "system_default_registry" . }}{{ .Values.csi.attacherImage }}
           {{- end }}
           {{- if .Values.csi.provisionerImage }}
           - name: CSI_PROVISIONER_IMAGE
-            value: {{ .Values.csi.provisionerImage }}
+            value: {{ template "system_default_registry" . }}{{ .Values.csi.provisionerImage }}
           {{- end }}
           {{- if .Values.csi.nodeDriverRegistrarImage }}
           - name: CSI_NODE_DRIVER_REGISTRAR_IMAGE
-            value: {{ .Values.csi.nodeDriverRegistrarImage }}
+            value: {{ template "system_default_registry" . }}{{ .Values.csi.nodeDriverRegistrarImage }}
           {{- end }}
           {{- if .Values.csi.resizerImage }}
           - name: CSI_RESIZER_IMAGE
-            value: {{ .Values.csi.resizerImage }}
+            value: {{ template "system_default_registry" . }}{{ .Values.csi.resizerImage }}
           {{- end }}
           {{- if .Values.csi.attacherReplicaCount }}
           - name: CSI_ATTACHER_REPLICA_COUNT
@@ -71,10 +71,6 @@ spec:
           - name: CSI_PROVISIONER_REPLICA_COUNT
             value: "{{ .Values.csi.provisionerReplicaCount }}"
           {{- end }}
-      {{- if .Values.defaultSettings.registrySecret }}
-      imagePullSecrets:
-      - name: {{ .Values.defaultSettings.registrySecret }}
-      {{- end }}
           resources:
             limits:
               cpu: {{ .Values.resources.manager.limits.cpu }}
@@ -82,4 +78,8 @@ spec:
             requests:
               cpu: {{ .Values.resources.manager.requests.cpu }}
               memory: {{ .Values.resources.manager.requests.cpu }}
+      {{- if .Values.defaultSettings.registrySecret }}
+      imagePullSecrets:
+      - name: {{ .Values.defaultSettings.registrySecret }}
+      {{- end }}
       serviceAccountName: storagebs-service-account

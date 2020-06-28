@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 image:
   storagebs:
+    init: registry.cn-hangzhou.aliyuncs.com/link-cloud/initcubepaas-bs:v0.6.0
     engine: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-engine
     engineTag: v0.8.3
     manager: registry.cn-hangzhou.aliyuncs.com/link-cloud/cubepaas-bs-manager
@@ -21,9 +22,9 @@ persistence:
   defaultClassReplicaCount: 3
 
 csi:
-  attacherImage:
-  provisionerImage:
-  driverRegistrarImage:
+  attacherImage: registry.cn-hangzhou.aliyuncs.com/link-cloud/csi-attacher:v2.0.0
+  provisionerImage: registry.cn-hangzhou.aliyuncs.com/link-cloud/csi-provisioner:v1.4.0
+  driverRegistrarImage: registry.cn-hangzhou.aliyuncs.com/link-cloud/csi-node-driver-registrar:v1.2.0
   kubeletRootDir:
   attacherReplicaCount:
   provisionerReplicaCount:

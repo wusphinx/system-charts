@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
       - name: install
-        image: registry.cn-hangzhou.aliyuncs.com/link-cloud/initcubepaas-bs:v0.6.0
+        image: "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.init }}"
         imagePullPolicy: Always
         command: ["/bin/sh","-c","/home/init.sh && ls /sbin/iscsi*"]
         securityContext:
@@ -28,7 +28,7 @@ spec:
           mountPath: /etc/ 
       containers:
       - name: storagebs-manager
-        image: "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
+        image: "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
         imagePullPolicy: Always
         securityContext:
           privileged: true
@@ -37,11 +37,11 @@ spec:
         - -d
         - daemon
         - --engine-image
-        - "{{ .Values.image.storagebs.engine }}:{{ .Values.image.storagebs.engineTag }}"
+        - "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.engine }}:{{ .Values.image.storagebs.engineTag }}"
         - --instance-manager-image
-        - "{{ .Values.image.storagebs.instanceManager }}:{{ .Values.image.storagebs.instanceManagerTag }}"
+        - "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.instanceManager }}:{{ .Values.image.storagebs.instanceManagerTag }}"
         - --manager-image
-        - "{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
+        - "{{ template "system_default_registry" . }}{{ .Values.image.storagebs.manager }}:{{ .Values.image.storagebs.managerTag }}"
         - --service-account
         - storagebs-service-account
         ports:
