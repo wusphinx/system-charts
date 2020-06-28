@@ -267,7 +267,7 @@ proxy:
 # If expose the service via "ingress", the Nginx will not be used
 nginx:
   image:
-    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-nginx-photon
+    repository: link-cloud/goharbor-nginx-photon
     tag: v1.9.4
   replicas: 1
   # resources:
@@ -283,7 +283,7 @@ nginx:
 portal:
   enabled: false
   image:
-    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-portal
+    repository: link-cloud/goharbor-harbor-portal
     tag: v1.9.4
   replicas: 1
 # resources:
@@ -298,7 +298,7 @@ portal:
 
 core:
   image:
-    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-core
+    repository: link-cloud/goharbor-harbor-core
     tag: v1.9.4
   replicas: 1
 resources:
@@ -327,7 +327,7 @@ resources:
 
 jobservice:
   image:
-    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-jobservice
+    repository: link-cloud/goharbor-harbor-jobservice
     tag: v1.9.4
   replicas: 1
   maxJobWorkers: 10
@@ -350,7 +350,7 @@ jobservice:
 registry:
   registry:
     image:
-      repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-registry-photon
+      repository: link-cloud/goharbor-registry-photon
       tag: v2.7.1-patch-2819-2553-v1.9.4
 
     resources:
@@ -362,7 +362,7 @@ registry:
        cpu: 400m
   controller:
     image:
-      repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-registryctl
+      repository: link-cloud/goharbor-harbor-registryctl
       tag: v1.9.4
 
   resources:
@@ -400,7 +400,7 @@ chartmuseum:
   # Harbor defaults ChartMuseum to returning relative urls, if you want using absolute url you should enable it by change the following value to 'true'
   absoluteUrl: false
   image:
-    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-chartmuseum-photon
+    repository: link-cloud/goharbor-chartmuseum-photon
     tag: v0.9.0-v1.9.4
   replicas: 1
   # resources:
@@ -416,7 +416,7 @@ chartmuseum:
 clair:
   enabled: true
   image:
-    repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-clair-photon
+    repository: link-cloud/goharbor-clair-photon
     tag: v2.1.0-v1.9.4
   replicas: 1
   # The interval of clair updaters, the unit is hour, set to 0 to
@@ -436,7 +436,7 @@ notary:
   enabled: false
   server:
     image:
-      repository: goharbor/notary-server-photon
+      repository: link-cloud/goharbor/notary-server-photon
       tag: v0.6.1-v1.9.4
     replicas: 1
     # resources:
@@ -445,7 +445,7 @@ notary:
     #    cpu: 100m
   signer:
     image:
-      repository: goharbor/notary-signer-photon
+      repository: link-cloud/goharbor/notary-signer-photon
       tag: v0.6.1-v1.9.4
     replicas: 1
     # resources:
@@ -471,7 +471,7 @@ database:
   type: internal
   internal:
     image:
-      repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-harbor-db
+      repository: link-cloud/goharbor-harbor-db
       tag: v1.9.4
     # The initial superuser password for internal database
     password: "changeit"
@@ -515,7 +515,7 @@ redis:
   type: internal
   internal:
     image:
-      repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/goharbor-redis-photon
+      repository: link-cloud/goharbor-redis-photon
       tag: v1.9.4
     # resources:
     #  requests:

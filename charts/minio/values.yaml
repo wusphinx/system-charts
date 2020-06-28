@@ -5,7 +5,7 @@ clusterDomain: cluster.local
 ## Set default image, imageTag, and imagePullPolicy. mode is used to indicate the
 ##
 image:
-  repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/minio
+  repository: link-cloud/minio
   tag: v20200207
   pullPolicy: IfNotPresent
 
@@ -13,7 +13,7 @@ image:
 ## client used to create a default bucket).
 ##
 mcImage:
-  repository: registry.cn-hangzhou.aliyuncs.com/link-cloud/mc
+  repository: link-cloud/mc
   tag: v20200214
   pullPolicy: IfNotPresent
 
