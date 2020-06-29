@@ -106,7 +106,7 @@ spec:
 {{ toYaml .Values.initResources | indent 10 }}
       containers:
       - name: "{{ template "name" . }}"
-        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        image: "{{ template "system_default_registry" . }}{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: "{{ .Values.imagePullPolicy }}"
         readinessProbe:
 {{ toYaml .Values.readinessProbe | indent 10 }}
