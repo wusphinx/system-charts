@@ -88,7 +88,7 @@ spec:
       {{- end }}
       containers:
       - name: "filebeat"
-        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        image: "{{ template "system_default_registry" . }}{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: "{{ .Values.imagePullPolicy }}"
         resources:
 {{ toYaml .Values.resources | indent 10 }}

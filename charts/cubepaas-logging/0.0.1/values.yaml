@@ -26,7 +26,7 @@ filebeat:
   # Root directory where Filebeat will write data to in order to persist registry data across pod restarts (file position and other metadata).
   hostPathRoot: /var/lib
 
-  image: "registry.cn-hangzhou.aliyuncs.com/link-cloud/filebeat"
+  image: "link-cloud/filebeat"
   imageTag: 7.3.0
   imagePullPolicy: "IfNotPresent"
   imagePullSecrets: []

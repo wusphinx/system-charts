@@ -69,7 +69,7 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
       {{- end }}
-        image: "{{ .Values.reloader.deployment.image.name }}:{{ .Values.reloader.deployment.image.tag }}"
+        image: "{{ template "system_default_registry" . }}{{ .Values.reloader.deployment.image.name }}:{{ .Values.reloader.deployment.image.tag }}"
         imagePullPolicy: {{ .Values.reloader.deployment.image.pullPolicy }}
         name: {{ template "reloader-name" . }}
       {{- if .Values.reloader.custom_annotations }}

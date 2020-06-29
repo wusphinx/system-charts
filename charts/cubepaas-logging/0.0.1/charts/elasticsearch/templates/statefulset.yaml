@@ -100,7 +100,7 @@ spec:
         securityContext:
           runAsUser: 0
           privileged: true
-        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        image: "{{ template "system_default_registry" . }}{{ .Values.image }}:{{ .Values.imageTag }}"
         command: ["sysctl", "-w", "vm.max_map_count={{ .Values.sysctlVmMaxMapCount}}"]
         resources:
 {{ toYaml .Values.initResources | indent 10 }}
