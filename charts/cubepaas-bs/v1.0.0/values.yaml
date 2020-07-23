@@ -8,7 +8,7 @@ image:
     engineTag: v1.0.1
     manager: link-cloud/cubepaas-bs-manager
     managerTag: v1.0.1
-    instanceManager: link-cloud/storagebs-im
+    instanceManager: link-cloud/imc
     instanceManagerTag: v0622
   pullPolicy: IfNotPresent
 
