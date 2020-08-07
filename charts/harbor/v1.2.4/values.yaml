@@ -281,7 +281,7 @@ nginx:
   podAnnotations: {}
 
 portal:
-  enabled: false
+  enabled: true
   image:
     repository: link-cloud/goharbor-harbor-portal
     tag: v1.9.4
