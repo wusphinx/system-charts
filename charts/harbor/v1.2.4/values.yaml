@@ -143,7 +143,7 @@ persistence:
       storageClass: ""
       subPath: ""
       accessMode: ReadWriteOnce
-      size: 1Gi
+      size: 500Gi
     # If external Redis is used, the following settings for Redis will
     # be ignored
     redis:
@@ -303,11 +303,11 @@ core:
   replicas: 1
 resources:
   requests:
-   memory: 256Mi
-   cpu: 200m
+    memory: 512Mi
+    cpu: 400m
   limites:
-   memory: 512Mi
-   cpu: 400m
+    memory: 1024Mi
+    cpu: 800m
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -355,11 +355,11 @@ registry:
 
     resources:
      requests:
-       memory: 256Mi
-       cpu: 200m
-     limits:
        memory: 512Mi
        cpu: 400m
+     limits:
+       memory: 1024Mi
+       cpu: 800m
   controller:
     image:
       repository: link-cloud/goharbor-harbor-registryctl
@@ -403,10 +403,10 @@ chartmuseum:
     repository: link-cloud/goharbor-chartmuseum-photon
     tag: v0.9.0-v1.9.4
   replicas: 1
-  # resources:
-  #  requests:
-  #    memory: 256Mi
-  #    cpu: 100m
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -475,10 +475,10 @@ database:
       tag: v1.9.4
     # The initial superuser password for internal database
     password: "changeit"
-    # resources:
-    #  requests:
-    #    memory: 256Mi
-    #    cpu: 100m
+    resources:
+     requests:
+       memory: 512Mi
+       cpu: 500m
     nodeSelector: {}
     tolerations: []
     affinity: {}
@@ -517,10 +517,10 @@ redis:
     image:
       repository: link-cloud/goharbor-redis-photon
       tag: v1.9.4
-    # resources:
-    #  requests:
-    #    memory: 256Mi
-    #    cpu: 100m
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 100m
     nodeSelector: {}
     tolerations: []
     affinity: {}
